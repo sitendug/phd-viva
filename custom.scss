@@ -1,0 +1,128 @@
+/*-- scss:rules --*/
+
+
+// scss-docs-start gray-color-variables
+$white:   #ffffff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:   #000000;
+// scss-docs-end gray-color-variables
+$blue:    #006287;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #d33682;
+$orange:  #fd7e14;
+$yellow:  #cb4b16;
+$green:   #2aa198;
+$teal:    #20c997;
+$cyan:    #268bd2;
+
+
+
+$min-contrast-ratio:   2.5;
+
+// Example use of headings 
+// placeholder class
+.reveal h2 {
+    color: #173F5F;
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    border: 0.1px;
+}
+
+// Body
+.reveal Body {
+     color: $black;
+     text-align: center;
+  
+}
+
+$link-color: #39729E;
+$text-muted: #6a737b;
+
+
+
+.layout-example {
+  background: $gray-500;
+  color: $white;
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+  font-family: $font-family-monospace;
+  font-size: .875em;
+  font-weight: 600;
+  padding-top: 0.2em;
+  border-radius: 3px;
+}
+
+.left {
+  text-align: left;
+  padding-left: 1em;
+}
+
+.right {
+  text-align: right;
+  padding-right: 1em;
+}
+
+.hello-quarto-banner h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+
+
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+
+$font-family-sans-serif:      "Josefin Sans";
+$presentation-heading-color: #00589b;
+$presentation-title-slide-text-align: "left";
+$code-block-font-size: 0.6em;
+$code-color: #5f5f5f;
+$presentation-h2-font-size: 1.4em;
+//$font-family-serif:       "Times New Roman";
+.reveal .slide .in-out {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 1em;
+  background: #E8E8E8;
+  font-family: $font-family-monospace;
+  font-size: 0.6em;
+}
+
+
+.reveal .slide .goal {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 1em;
+  background: #ccddeb;
+}
+
+.reveal .slide .goal2 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 1em;
+  background: #ccebea;
+}
+
+
