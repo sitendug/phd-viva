@@ -1,0 +1,3182 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="phd_viva_files/libs/clipboard/clipboard.min.js"></script>
+<script src="phd_viva_files/libs/quarto-html/tabby.min.js"></script>
+<script src="phd_viva_files/libs/quarto-html/popper.min.js"></script>
+<script src="phd_viva_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="phd_viva_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="phd_viva_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="phd_viva_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.0.37">
+
+  <title>phd_viva</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="phd_viva_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="phd_viva_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="phd_viva_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="phd_viva_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="phd_viva_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="phd_viva_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="phd_viva_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  
+  <script src="phd_viva_files/libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="phd_viva_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section>
+<section id="welfare-status-assessment-of-captive-asiatic-lions-in-gujarat-an-integrated-approach" class="title-slide slide level1 center" style="margin-top:0.5px;font-size:1em;color:#720000;text-align:center;">
+<h1>Welfare Status Assessment of Captive Asiatic Lions in Gujarat: An Integrated Approach</h1>
+<div style="margin-top:1px;font-size:0.8em;color:red;text-align:center;margin-top:1px;">
+<p>Sitendu Goswami</p>
+<p>Saurashtra University</p>
+<p>Registration number- 16805</p>
+<p>PhD Supervisor- Dr.&nbsp;Samrat Mondol (Scientist-E)</p>
+</div>
+<p><img data-src="figures/Saurashtra-University1scale.png"></p>
+<p><img src="figures/wiilogo.png" style="width:356px;height: 100px;"></p>
+</section>
+<section id="zoos-and-animal-welfare" class="slide level2 h2">
+<h2>Zoos and animal welfare</h2>
+<h3 id="zoological-park">Zoological park</h3>
+<blockquote>
+<p>An establishment which maintains a collection of wild animals, typically in a park or gardens, for study, conservation, or display to the public.</p>
+</blockquote>
+<h3 id="animal-welfare">Animal welfare</h3>
+<blockquote>
+<p>Opportunity to express species-typical behaviours to cope with environmental or internal stressors (Broom, 1980).</p>
+</blockquote>
+<div class="columns">
+<div class="column" style="width:40%;">
+<!-- ![](figures/lionarb.mp4){fig-align="center" height="300" width="600"} -->
+<video data-autoplay="" src="figures/lionarb.mp4">
+</video>
+</div><div class="column" style="width:60%;">
+<h4 id="effects-of-poor-welfare">Effects of poor welfare</h4>
+<div class="goal">
+<ul>
+<li>Loss of behaviour diversity.</li>
+<li>Lowered fertility.</li>
+<li>Increased juvenile mortality.</li>
+<li>Unstable captive population.</li>
+<li>Unfit for repatriation.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Introduction</p>
+</div>
+<aside class="notes">
+<p>Zoos are man made creations.Hence zoos provide a rare glimpse into the ever-changing relationship between nature and man. The objectives of a modern zoo goes beyond public recreation into the fields of conservation breeding and ex-situ conservation. - captivity forces animals to relinquish control over their environment. - Which leads to chronic stress resulting in a loss of behaviour diversity, lowered fertility, and other factors leading to a unstable captive population unfit of repatriation to the wilderness. - Animal welfare as a concept attempts to provide animals the opportunity to cope with internal and external stressor &amp; thereby regain control which leads to better psychosomatic outcomes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+
+<section id="importance-of-animal-welfare" class="slide level2">
+<h2>Importance of animal welfare</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/welfaremer.png"></p>
+</figure>
+</div>
+<div class="footer">
+<p>Introduction</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Animal welfare is a well established concept in the modern era.</li>
+<li>Although I know the benefits of keeping animals in a good state of welfare.</li>
+<li>The factors contributing to good welfare are not fully understood since they vary contextually.</li>
+<li>Therefore if we keep animals in good health and appropriate social grouping followed by some other confounding factors that we will dicuss today, we can ensure good welfare conditions.</li>
+<li>Animals in good welfare retain species typical behaviour diversity and therefore have higher chance of survival after reintroduction.</li>
+<li>Animals in good welfare lead to reliable ex-situ research outcomes.</li>
+<li>Finally animals in good welfare lead to a more conservation-focused polity that aids in securing long term future for endangered species.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="animal-welfare-and-ex-situ-conservation-in-india" class="slide level2 h2">
+<h2>Animal welfare and <em>ex-situ</em> conservation in India</h2>
+<div class="{columns}">
+<p><img data-src="figures/darwin.jpg" width="200" height="300"> <img data-src="figures/expression.jpg" width="200" height="300"> <img data-src="figures/rambrahmasanyal.jpg" width="200" height="300"> <img data-src="figures/handbook.png" width="200" height="300"> <img data-src="figures/hediger.png" width="200" height="300"> <img data-src="figures/zoobiol.jpg" width="200" height="300"> <img data-src="figures/ruth.jpg" width="200" height="300"> <img data-src="figures/animalmachines.jpg" width="200" height="300"></p>
+</div>
+<div class="goal">
+<ul>
+<li><p>Long road to animal sentience.</p></li>
+<li><p>First book on captive animal management by Mr.&nbsp;Ram Brahma Sanyal, curator of Alipore zoo, 1892.</p></li>
+<li><p>Advances in zoo biology and animal welfare.</p></li>
+<li><p>India has 149 zoos and 25 conservation breeding programes for endangered species.</p></li>
+<li><p>Practical animal welfare based management practices continue to elude most captive animals.</p></li>
+<li><p>Asiatic lion conservation breeding programme operational since 1990s.</p></li>
+<li><p>Indian zoos house over 200 Asiatic lions out of the total 349 individuals in captivity.</p></li>
+</ul>
+</div>
+<div class="footer">
+<p>Introduction</p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>By the end of the nineteenth century the debate on animal sentience was resolved by Darwin and several other experts. His book on the expression and emotion by man and animals showed that animals can truly feel pain.</p></li>
+<li><p>in 1892 the first handbook on captive animal management in zoos was published by the Mr RB Sanyal curator of Alipore zoological garden, India.</p></li>
+<li><p>For over a century there have been several champions of animal welfare like Dr., Heini hediger the father of zoo biology and ruth Harrison who brought in the animal rights movement.</p></li>
+<li><p>India has also witnessed a proliferation in zoos and conservation breeding centers.</p></li>
+<li><p>There are more than 149 zoos and 25 conservation breeding programmes operational in the country. There are more than 50000 captive animals in Indian zoos.</p></li>
+<li><p>Unfortunately, research output on the welfare status of animals from these institutions is abysmal.</p></li>
+<li><p>Although there has been some welfare research on zoo-housed animals. Little to no literature exisits on the welfare of endangered animals housed at Indian conservation breeding centers.</p></li>
+<li><p>To address this research gap, I looked into the welfare status of Asiatic lions housed at one of the oldest conservation breeding programmes for the species in India at Sakkarbaug zoo Junagadh, Gujarat.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sakkarbaug-zoological-park-and-asiatic-lion-conservation" class="slide level2">
+<h2>Sakkarbaug Zoological Park and Asiatic lion conservation</h2>
+<div class="cell" data-fig.showtext="true">
+
+</div>
+<div class="cell" data-fig.showtext="true">
+
+</div>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="figures/nawab-1895.jpg" height="400"> <img data-src="figures/sakkarbaug.png" width="900" height="400"> <img data-src="figures/szg.png" width="700" height="400"></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Founded in 1863 and served the purpose of rescuing, treating and rehabilitating injured and diseased Asiatic lions from the surrounding landscape.</li>
+<li>One of the longest running conservation breeding programmes.</li>
+<li>Falls within the natural range of the species.</li>
+<li>Largest single captive population of Asiatic lions.</li>
+<li>Welfare status of lions under-reported.</li>
+</ul>
+<div class="footer">
+<p>Introduction</p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Sakkarbaug zoological garden, falls within the natural range of Asiatic lions.</p></li>
+<li><p>Established in 1863 as a menagerie by the Nawabs of Junagadh( a princely state in British India), This zoo has a long history with Asiatic lion conservation.</p></li>
+<li><p>Since its foundation, this zoo has been associated with the rehabilitation and breeding of Asiatic lions and presently houses 60 Asiatic lions, that includes a large number of wild-rescued animals.</p></li>
+<li><p>SZG is of immense importance to Asiatic lion conservation and therefore it is imperative to audit and improve their incumbent management practices for the species regularly.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+<p>Introduction</p>
+</div>
+</section>
+<section id="asiatic-lion-in-situ-research-highlight" class="slide level2">
+<h2>Asiatic lion: <em>in-situ</em> research highlight</h2>
+<div class="goal">
+<ul>
+<li>Well studied system <em>in-situ</em>.</li>
+<li>Lack of synergy between the <em>in-situ</em> and <em>ex-situ</em> conservation approaches for the species.</li>
+</ul>
+</div>
+<table>
+<caption><em>in-situ</em> research on Asiatic lions</caption>
+<colgroup>
+<col style="width: 63%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Research Focus</th>
+<th>Author(year)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ecology of Asiatic lions</td>
+<td>Joslin (1973),Sinha(1987), Meena (2009, 2011), Jhala et al (2009,2020), Banerjee et al (2010,2012), Chakraborti &amp; Jhala ( 2017, 2019).</td>
+</tr>
+<tr class="even">
+<td>Lion-human conflict in India</td>
+<td>Saberwal et al (2004), Banerjee et al (2013).</td>
+</tr>
+<tr class="odd">
+<td>Reintroduction of Asiatic lions</td>
+<td>Johnsingh et al (2007).</td>
+</tr>
+</tbody>
+</table>
+<div class="footer">
+<p>Introduction</p>
+</div>
+<aside class="notes">
+<p>There are presently 674 Asiatic lions in the wild, and 300 lions form the global captive population.</p>
+<ul>
+<li>While in-situ research on Asiatic lions has led to several affirmative conservation actions, there have been few studies reported from the ex-situ management program for the species in their range country.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="asiatic-lion-ex-situ-research-highlight" class="slide level2">
+<h2>Asiatic lion: <em>ex-situ</em> research highlight</h2>
+<div class="goal">
+<ul>
+<li>No studies on the welfare of lions in a conservation breeding programme.</li>
+<li>Small sample sizes.</li>
+<li>Dearth of welfare audit from range country.</li>
+</ul>
+</div>
+<table>
+<caption><em>ex-situ</em> research on Asiatic lions</caption>
+<colgroup>
+<col style="width: 64%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Research Focus</th>
+<th>Author(year)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Genetic linkage between Asiatic and African lions</td>
+<td>O’Brien(1987)</td>
+</tr>
+<tr class="even">
+<td>Seroepizootiological survey for selected viral infections</td>
+<td>Ramanathan et al(2007)</td>
+</tr>
+<tr class="odd">
+<td>Estrus behaviour</td>
+<td>Umapathy(2007)</td>
+</tr>
+<tr class="even">
+<td>Role of personality on behaviour</td>
+<td>Pastorino(2015), Spiezio(2015)</td>
+</tr>
+</tbody>
+</table>
+<div class="footer">
+<p>Introduction</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Studies on captive asiatic lions have primarily focused on their breeding cycles.</li>
+<li>some studies from London zoo have addressed their welfare status in a limited manner.</li>
+<li>In fact there is limited literature available on the welfare status of lions.</li>
+<li>There is a prominent research gap in the welfare status assessment of captive Asiatic lions housed in the conservation breeding programme.</li>
+<li>Which I aim to address to some extent today.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="thesis-objectives" class="slide level2">
+<h2>Thesis objectives</h2>
+<div class="columns">
+<p><img data-src="figures/offdsip.png" width="600" height="400"> <img data-src="figures/P1100006.png" width="650" height="400"> <img data-src="figures/image19.jpeg" width="600" height="400"></p>
+</div>
+<div class="goal">
+<ul>
+<li><p><span style="color:#cc0000">Chapter 1</span>: What is the effect of visitor presence and enclosure complexity on the welfare of Asiatic lions?</p></li>
+<li><p><span style="color:#cc0000">Chapter 2</span>: Does the personality trait and rearing-history play a role in determining the welfare of Asiatic lions?</p></li>
+<li><p><span style="color:#cc0000">Chapter 3</span>: Can enrichment interventions improve welfare and encourage positive affective states in Asiatic lions?</p></li>
+<li><p><span style="color:#cc0000">Chapter 4</span>: Recommendations for betterment of husbandry practices of Asiatic lions in captivity.</p></li>
+</ul>
+</div>
+<div class="footer">
+<p>Introduction</p>
+</div>
+<aside class="notes">
+<p>I aimed to understand the predominant factors affecting welfare status of captive Asiatic lions. - To achieve that goal I looked into the external factors like enclosure complexity and visitor presence. - I also explored the effect of inter-individual differences on differential welfare outcomes under similar housing conditions. - Finally I wanted to understand if welfare conditions could be improved using enrichment interventions. Now I will discuss each of my chapters in detail</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="chapter-1-effects-of-enclosure-type-and-visitor-presence-on-animal-welfare" class="slide level2">
+<h2>Chapter 1: Effects of enclosure type and visitor presence on animal welfare</h2>
+<div class="{columns}">
+<p><img data-src="figures/oldexhibit2.png" width="600" height="390"> <img data-src="figures/offdsip.png" width="650" height="390"> <img data-src="figures/zoosaf.JPG" width="600" height="390"></p>
+</div>
+<h3 id="objectives">Objectives</h3>
+<div class="goal">
+<ul>
+<li>Does the behavioural welfare indices of Asiatic lions vary based on enclosure complexity?</li>
+<li>Does the behavioural welfare indices and activity budget of Asiatic lions vary based on visitor presence?</li>
+</ul>
+</div>
+
+<aside class="notes">
+<p>My goals for this objective was to understand how enclosure complexity and visitor presence relate with asiatic lion welfare. - There is no debate about the fact that enclosure type, size and complexity are largely responsible for the welfare of captive animals. - This has been proven across studies spanning several decades now. - However very fes studies have looked into the effects of visitor presence and enclosure complexity together. - Moreover, none of the exisiting studies have had strong sample sizes, which is a common hindrance to most zoo-based studies.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside><div>
+<p>Goswami, S., Tyagi, P.C., Malik, P.K., Gupta, Brij. K.(2022). Effects of enclosure complexity and visitor presence on Asiatic lion welfare. Emerging Animal Species.(Under Review)</p>
+</div></aside></section>
+<section id="subjects" class="slide level2">
+<h2>Subjects</h2>
+<div class="{columns}">
+<p><img src="figures/Jesal.jpg" height="400px" width="600"> <img src="figures/lioness.JPG" height="400px" width="600"> <img src="figures/szg.png" height="400px" width="600"></p>
+</div>
+<div class="goal">
+<ul>
+<li>Adult Asiatic lions (N=41).</li>
+<li>Mean age 7.9 years.</li>
+<li>17 male, 24 female.</li>
+<li>23 pair-housed 18 group-housed.</li>
+<li>On-display(N=6), Zoo-safari(N=10), Off-display(N =25).</li>
+</ul>
+</div>
+<aside class="notes">
+<ul>
+<li>I had access to 41 captive Asiatic lions of whom 6 were housed at on-display enclsores, 10 were at the zoo-safari and 25 were housed completely off-display with no visitor disturbance.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+</section>
+<section id="study-design" class="slide level2">
+<h2>Study design</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/study-design.png"></p>
+</figure>
+</div>
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="on-display-enclosure"><span style="color:red">On-display enclosure</span></h3>
+<ul>
+<li>Number of enclosures- 2</li>
+<li>Number of subjects- 6(3M:3F)</li>
+<li>Enclosure size- 100m<sup>2</sup></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<h3 id="zoo-safari"><span style="color:red">Zoo-safari</span></h3>
+<ul>
+<li>Number of enclosures- 4</li>
+<li>Number of subjects- 10(4M:6F)</li>
+<li>Enclosure size- 1200m<sup>2</sup></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<h3 id="off-display"><span style="color:red">Off-display</span></h3>
+<ul>
+<li>Number of enclosures- 17</li>
+<li>Number of subjects- 25(10M:15F)</li>
+<li>Enclosure size- 1200m<sup>2</sup> - 5600m<sup>2</sup></li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>There are three types of enclosures at Sakkarbaug zoo on-display, zoo-safari and off-dsiplay</li>
+<li>The on-display enclosures are small and exposed to a large visitor volume throughout the day except Wednesday when the zoo is closed.</li>
+<li>The zoo-safari enclosures are situated at the foothills of girnar at the distal portion of the main zoo premise.</li>
+<li>A safari bus is allowed to move periodically through this area, wherein viistors can look at asiatic lions in large naturalistic enclosures without disembarking from the bus.</li>
+<li>The thrid type of enclosures are found in the same area that constitute the conservation breeding programme for Asiatic lions. Visitors and outsiders are not allowed in this complex.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="on-display-enclosures" class="slide level2 h2">
+<h2>On-display enclosures</h2>
+
+<img data-src="figures/ondisplay.JPG" width="1900" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 1</p>
+</div>
+</section>
+<section id="zoo-safari-enclosure" class="slide level2 h2">
+<h2>Zoo-safari enclosure</h2>
+
+<img data-src="figures/zoosaf.JPG" width="1900" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 1</p>
+</div>
+</section>
+<section id="off-display-enclosure" class="slide level2 h2">
+<h2>Off-display enclosure</h2>
+
+<img data-src="figures/offdsip.png" width="1900" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 1</p>
+</div>
+</section>
+<section id="layout-of-the-off-display-and-zoo-safari-enclosures" class="slide level2">
+<h2>Layout of the off-display and zoo-safari enclosures</h2>
+
+<img data-src="figures/enclosurelayout.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 1</p>
+</div>
+</section>
+<section id="methodology" class="slide level2" data-background-image="figures/workplan.png" data-background-size="contain" data-fig-align="center">
+<h2>Methodology</h2>
+<!-- ![](figures/workplan.png){width="1700" height="1000"} -->
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>I used enclosure comlexity scoring to understand the species-appropriateness of enclosures.</li>
+<li>I used several behavioural welfare indices to understand the welfare status of asiatic lions.</li>
+<li>Before commencing the data collection I conducted an ad-libitum study to create a detailed ethogram for Asiatic lions.</li>
+<li>I also corrected for observer bias before commencing behaviour data collection.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="methods-ethogram-for-asiatic-lion" class="slide level2 scrollable">
+<h2>Methods: Ethogram for Asiatic lion</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-fig.showtext="true">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 20px; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Sl no </th>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Behaviour name </th>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Category </th>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Description </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> Sphinx </td>
+   <td style="text-align:left;"> Rest </td>
+   <td style="text-align:left;"> The animal sits like a sphinx </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> Lying down </td>
+   <td style="text-align:left;"> Rest </td>
+   <td style="text-align:left;"> The animal lies on its side </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> Belly up </td>
+   <td style="text-align:left;"> Rest </td>
+   <td style="text-align:left;"> The animal resting in its back with legs pointing upwards </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> Sit </td>
+   <td style="text-align:left;"> Rest </td>
+   <td style="text-align:left;"> The animal sits on its haunches </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:left;"> Stand </td>
+   <td style="text-align:left;"> Rest </td>
+   <td style="text-align:left;"> Animal standing and doing nothing else </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 6 </td>
+   <td style="text-align:left;"> fixate </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Looking at an object and staring at it with intent and reacts as soon as the object moves </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 7 </td>
+   <td style="text-align:left;"> Eating </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Eating food material and ingesting the same </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 8 </td>
+   <td style="text-align:left;"> Drink </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Drinking water </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 9 </td>
+   <td style="text-align:left;"> Clearing hide </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Clearing the fur from the hide of food item </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 10 </td>
+   <td style="text-align:left;"> Chew </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Chewing Bones </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 11 </td>
+   <td style="text-align:left;"> Walk </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal walking straight with head at slight upward angle to the rest of the body </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 12 </td>
+   <td style="text-align:left;"> Stalk </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal crouching or walking with slow calculated steps, head at a lower angle than the body. Note down the subject stalked </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 13 </td>
+   <td style="text-align:left;"> Charge </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal shows a sudden burst in pace and runs upto a short distance to a certain object, individual, with tail swaying above the body line, note down the subject </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 14 </td>
+   <td style="text-align:left;"> Chase </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal chasing object, another animal in a fast paced manner, here also note down the subject chased </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 15 </td>
+   <td style="text-align:left;"> Solicit Play </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal runs or walks up to another animal and tries to play by rolling in front of them or pawing their </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 16 </td>
+   <td style="text-align:left;"> Nuzzling </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Rub nose and head with a conspecific </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 17 </td>
+   <td style="text-align:left;"> Play </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal showing different types of playful behaviour </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 18 </td>
+   <td style="text-align:left;"> Mount </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal mounting a conspecific </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 19 </td>
+   <td style="text-align:left;"> Neckbite </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Male bites the scruff of the female while copulating </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 20 </td>
+   <td style="text-align:left;"> Roll over </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Female rolls on the ground, an act preceded by copulation </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 21 </td>
+   <td style="text-align:left;"> Yawn </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal yawns </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 22 </td>
+   <td style="text-align:left;"> Scentmark </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> 1. Scentmark a tree or a vertical object  with perianal glands 2. scent mark on ground and then scratch with hind legs. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 23 </td>
+   <td style="text-align:left;"> Rubbing mane </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal rubs mane or body against a scent-marked area or against a conspecific </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 24 </td>
+   <td style="text-align:left;"> Sniff </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal sniffing object, conspecific, air </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 25 </td>
+   <td style="text-align:left;"> Flehmen </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Wrinkled face, upper lip curled in a grimace </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 26 </td>
+   <td style="text-align:left;"> Cough </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal coughs </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 27 </td>
+   <td style="text-align:left;"> Aggression </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal shows aggression towards enclosure mates, keepers, and other lions visible through enclosure barriers, charges up a short distance growls, with tail swaying from side to side. The recipient if in physical contact with the aggressor either fights back or lies on its back and bares teeth. Usual injuries to haunches, face, shoulders in recipients. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 28 </td>
+   <td style="text-align:left;"> Dig </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Trying to dig ground, leaves, enclosure substrate </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 29 </td>
+   <td style="text-align:left;"> Allogrooming </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal licking the head and body of conspecifics </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:left;"> Autogrooming </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal licking its paws and geinitals </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 31 </td>
+   <td style="text-align:left;"> paw </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal inspecting an object or conspecific with jabs of  the front paw </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 32 </td>
+   <td style="text-align:left;"> Scratch </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal scratching post or tree </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 33 </td>
+   <td style="text-align:left;"> Bite </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal mouthing an object </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 34 </td>
+   <td style="text-align:left;"> Chew </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal intently and purposefully chewing a twig or a foreign object </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 35 </td>
+   <td style="text-align:left;"> Suffocate </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal grabs any long object like a branch or  enrichment device and holds it down with the paws and bites on it as if to suffocate it. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 36 </td>
+   <td style="text-align:left;"> Neckbite </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal Playfully bites the neck of the conspecific and tries to bring them down </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 37 </td>
+   <td style="text-align:left;"> Paw-swipe </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal playfully swipes the hind leg of the conspecific </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 38 </td>
+   <td style="text-align:left;"> Initiate-call </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal starts to vocalize </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 39 </td>
+   <td style="text-align:left;"> Response_vocalization </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal responds to the vocalization of another conspecific </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 40 </td>
+   <td style="text-align:left;"> Growl </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Animal makes a low rumbling noise lasting for a short duration </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 41 </td>
+   <td style="text-align:left;"> Aggressive growl </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Loud growl followed by an immediate charge </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 42 </td>
+   <td style="text-align:left;"> Copulation growl </td>
+   <td style="text-align:left;"> Typical </td>
+   <td style="text-align:left;"> Vocalization made by males and females while copulating </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> Pacing </td>
+   <td style="text-align:left;"> ARB </td>
+   <td style="text-align:left;"> Animal walks up and down a fixed path occasionally raising its head up and fixed  points </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 44 </td>
+   <td style="text-align:left;"> Rubbing nose </td>
+   <td style="text-align:left;"> ARB </td>
+   <td style="text-align:left;"> Animal rubs its nose against a wall or a chainlink barrier that leaves a distinct black mark on the snout </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 45 </td>
+   <td style="text-align:left;"> Swaying </td>
+   <td style="text-align:left;"> ARB </td>
+   <td style="text-align:left;"> Animal stands facing a wall or the barrier and shifts its weight from one leg to the other </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 46 </td>
+   <td style="text-align:left;"> Body rub </td>
+   <td style="text-align:left;"> ARB </td>
+   <td style="text-align:left;"> Animal rubs body at the same area that leaves a mark on the wall or enclosure barrier. Often results in hair loss in certain parts of the body. </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="goal">
+<ul>
+<li>Behaviours classified as <span style="color:blue">Rest</span>, <span style="color:green">Typical</span> and <span style="color:red">ARB</span>.</li>
+<li>Observer bias corrected prior to data collection.</li>
+<li>Instantaneous scan samples at 1 minute intervals.</li>
+<li>Direct observation and video recordings used</li>
+<li>130 hours of behaviour data collected from each subject(at least 3 hours per day).</li>
+<li>Total 383,132 scans of behaviour data.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>I created the most detailed ethogram for captive Asiatic lions.</li>
+<li>I used existing literature as the base and added new behaviours as I encountered them.</li>
+<li>Behaviours were categorises as Rest, typical and stereotype or ARB.</li>
+<li>I used instantaneous scan samples at 1 minute intervals to collect data.</li>
+<li>I collected 130 hours of behaviour data per subjject. from 7am to 7pm.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="methods-behavioural-welfare-indices" class="slide level2">
+<h2>Methods: Behavioural welfare indices</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="figures/peerj1.png"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p><span style="color:red">Activity budget</span></p></li>
+<li><p><span style="color:red">Behaviour diversity</span> <span class="math display">\[
+SWI = \sum {p_{i}*\log p_{i}}
+\]</span></p></li>
+<li><p><span style="color:red">Enclosure usage</span> <span class="math display">\[
+SPI = \frac {\sum |f_{o}-f_{e}|} {2(N-f_{emin})}
+\]</span></p></li>
+<li><p><span style="color:red">Aberrant repetitive behaviours</span> <br> Percentage of scans spent performing stereotypic behaviours.</p></li>
+<li><p>Calculations done separately for <span style="color:red">“visitor”</span>(N= 70 days) and <span style="color:green">“non-visitor”</span> days(N = 14 days).</p></li>
+</ul>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>To collect the behavioral data, I divided the enclosures into ten equal zones</li>
+<li>I used instantaneous scans at 1-minute intervals for one hour followed by a 15-minute rest to reduce observer fatigue.*</li>
+<li>observations were made in six-hour blocks between 7-11 and 1300-1900 hours</li>
+<li>In total, I collected 127 hours of scan observation data per subject</li>
+<li>During each scan I recorded the behavioral state of the animal and the enclosure zone it was using.*</li>
+<li>I counted the scans in which animals were performing species-typical behaviors and aberrant repetitive behaviors and also measured the total amount of time they spent on different enclosure zones.</li>
+<li>I calculated the species-typical behaviour diversity using the shanon weiner index formula.</li>
+<li>I calculate the homogeneity of enclosure usage with SPI formula developed by Amy Plowman. A score close to 1 denote enclosure zone bias, while a score less than 0.5 means homogenous enclosure use.</li>
+<li>Calculations were done separately for 70 visitor and 14 non-visitor days.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="methods-enclosure-complexity-scoring" class="slide level2 scrollable">
+<h2>Methods: Enclosure complexity scoring</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-fig.showtext="true">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 20px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Complexity rating rubric for Asiatic lion enclosures</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sl no </th>
+   <th style="text-align:left;"> Attributes </th>
+   <th style="text-align:left;"> Description </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr grouplength="13"><td colspan="3" style="border-bottom: 1px solid;"><strong>Enclosure features</strong></td></tr>
+<tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 1 </td>
+   <td style="text-align:left;"> Enclosure barrier safety </td>
+   <td style="text-align:left;"> Does the enclosure barrier pose a safety hazard to the animals? Are there exposed rusted metals used in the enclosure barrier that can injure or harm the animals? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 2 </td>
+   <td style="text-align:left;"> Enclosure barrier type </td>
+   <td style="text-align:left;"> Is the enclosure barrier type safe and limit chances of human animal contact? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 3 </td>
+   <td style="text-align:left;"> Enclosure visibility </td>
+   <td style="text-align:left;"> Do keepers and visitors have unhindered visibility to all parts of the enclosure. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 4 </td>
+   <td style="text-align:left;"> Area for animal actvity </td>
+   <td style="text-align:left;"> Does the enclosure provide enough space for the animal to exhibit species-typical behaviour patterns? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 5 </td>
+   <td style="text-align:left;"> Substrate type </td>
+   <td style="text-align:left;"> Does the enclosure substrate provide natural materials that promote natural behaviours? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 6 </td>
+   <td style="text-align:left;"> Area for animal activity </td>
+   <td style="text-align:left;"> Does the enclosure provide enough space for the animal to exhibit species-typical behaviour patterns? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 7 </td>
+   <td style="text-align:left;"> Enclosure topography </td>
+   <td style="text-align:left;"> Does the enclosure have topographical features, viz., caves and vantage points that allow animals to exhibit natural behaviour patterns? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 8 </td>
+   <td style="text-align:left;"> Shelter </td>
+   <td style="text-align:left;"> Does the enclosure provide shelter to the animals from inclement weather? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 9 </td>
+   <td style="text-align:left;"> Aspect </td>
+   <td style="text-align:left;"> Does the enclosure provide animals equitable opportunities to thermoregulate? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 10 </td>
+   <td style="text-align:left;"> Withdrawal spaces </td>
+   <td style="text-align:left;"> Are there sufficient withdrawal zones within the enclosure to counter visitor disturbance in all animals? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 11 </td>
+   <td style="text-align:left;"> Vegetation </td>
+   <td style="text-align:left;"> Does the enclosure have adequate species-appropriate vegetation that can promote species-typical behaviours in housed animals? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 12 </td>
+   <td style="text-align:left;"> Enrichment </td>
+   <td style="text-align:left;"> Does the enclosure provide species-appropriate enrichment for all animals with the aim of encouraging species-typical behaviours? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 13 </td>
+   <td style="text-align:left;"> Furniture </td>
+   <td style="text-align:left;"> Does the enclosure provide furniture such as vantage points, water pool, that appropriate for the species and provide opportunity for natural behaviour repertoire </td>
+  </tr>
+  <tr grouplength="3"><td colspan="3" style="border-bottom: 1px solid;"><strong>Social features</strong></td></tr>
+<tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 14 </td>
+   <td style="text-align:left;"> Inter-individual distance </td>
+   <td style="text-align:left;"> Does the enclosure provide enough space for all animals to coexist? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 15 </td>
+   <td style="text-align:left;"> Social grouping </td>
+   <td style="text-align:left;"> Is the social grouping appropriate or unnatural due to iso-sexual pairing of unrelated individuals? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 16 </td>
+   <td style="text-align:left;"> View beyond enclosure </td>
+   <td style="text-align:left;"> Do the animals have the ability to view beyond the enclosure through vantage points? </td>
+  </tr>
+  <tr grouplength="4"><td colspan="3" style="border-bottom: 1px solid;"><strong> Feeding practices</strong></td></tr>
+<tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 17 </td>
+   <td style="text-align:left;"> Feed availability </td>
+   <td style="text-align:left;"> Is feed provided consistently and periodically to all subjects based on their body weight and biological requirement? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 18 </td>
+   <td style="text-align:left;"> Feeding practice </td>
+   <td style="text-align:left;"> Does the husbandry practices incorporate species appropriate feeding practices that encourage natural behaviour? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 19 </td>
+   <td style="text-align:left;"> Availability of drinking water </td>
+   <td style="text-align:left;"> Does the enclosure provide animals with safe clean drinking water throughout the day? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 20 </td>
+   <td style="text-align:left;"> Feed delivery mechanism </td>
+   <td style="text-align:left;"> Is the food provisioned in a manner that encourages species-typical behaviour? </td>
+  </tr>
+  <tr grouplength="5"><td colspan="3" style="border-bottom: 1px solid;"><strong>Retiring area</strong></td></tr>
+<tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 21 </td>
+   <td style="text-align:left;"> Retiring area space </td>
+   <td style="text-align:left;"> Does the animal have sufficient space to move around in the retiring area </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 22 </td>
+   <td style="text-align:left;"> Retiring area ventilation </td>
+   <td style="text-align:left;"> Does the Retiring area provide natural ventillation to the species </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 23 </td>
+   <td style="text-align:left;"> Retiring area illumination </td>
+   <td style="text-align:left;"> Is the retiring area deisgned to receive natural illumination at all times of the day? </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 24 </td>
+   <td style="text-align:left;"> Retiring area enrichment </td>
+   <td style="text-align:left;"> Does the retiring area provide animals with enrichment devices to promote natural behaviours </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;padding-left: 2em;" indentlevel="1"> 25 </td>
+   <td style="text-align:left;"> Retiring area social grouping </td>
+   <td style="text-align:left;"> Does the retiring area provide animals a chance for social interactions </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="goal">
+<ul>
+<li>41 point rubric for enclosure complexity created.</li>
+<li>I looked at several features such as enclosure space, vegetation, social features, feeding practices and retiring area features.</li>
+<li>Scoring on a scale of 1-5( 5 being most species appropriate).</li>
+<li>Enclosures scored separately and mean calculated for each enclosure type.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>41 point rubric for enclosure complexity created.</li>
+<li>We looked at several features such as enclosure space, vegetation, social features, feeding practices and retiring area features.</li>
+<li>Scoring on a scale of 1-5( 5 being most species appropriate).</li>
+<li>Enclosures scored separately and mean calculated for each enclosure type.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-enclosure-complexity-scores" class="slide level2">
+<h2>Results: Enclosure complexity scores</h2>
+<div class="goal">
+<ul>
+<li>On-display enclosures were small, sterile and unfit for housing Asiatic lions.</li>
+<li>On-display enclosures lacked vegetation features.</li>
+<li>On-display enclosures had insufficient safety features.</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-7-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>On display enclosures scored poorly on all aspects of enclosure design compared to off-display and zoo-safari enclosures. The only exception being feeding practices, which was similar for all three enclosures.</li>
+<li>On-display enclosures lacked vegetation features, space and wwere deemed unsafe for keepers, animals and visitors.</li>
+<li>Therefore in terms of complexity there were two types of enclosures and in terms of visitor presence we had three enclosure types.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-activity-budget" class="slide level2">
+<h2>Results: Activity budget</h2>
+<div class="goal">
+<ul>
+<li>Lions housed in on-display enclosures showed more ARB and rested less during visitor presence days.</li>
+<li>On no-visitor days on-display animals performed slightly less stereotypy.</li>
+<li>There was slight increase in arb level of lions on non-visitor days at the zoo-safari.</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-8-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Lions housed in on-display enclosures showed more ARB and rested less during visitor presence days.</li>
+<li>On no-visitor days on-display animals performed slightly less stereotypy.</li>
+<li>There was slight increase in arb level of lions on non-visitor days at the zoo-safari.</li>
+<li>both off-display enclosures showed similar activity budgets.<br>
+</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-hourly-activity-budget" class="slide level2">
+<h2>Results: Hourly activity budget</h2>
+<div class="goal">
+<ul>
+<li>ARB levels of lions housed on-display remained constant throughout the day after an early morning peak.</li>
+<li>Lions housed on-display rested less and showed less typical behaviours.</li>
+<li>ARB levels for off-display animals peaked in the morning and in the evening.</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-9-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>ARB levels of lions housed on-display remained constant throughout the day after an early morning peak.</li>
+<li>Lions housed on-display rested less and showed less typical behaviours.</li>
+<li>ARB levels for off-display animals peaked in the morning and in the evening.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-aberrant-repetitive-behaviours-arb" class="slide level2">
+<h2>Results: Aberrant repetitive behaviours (ARB)</h2>
+<div class="goal">
+<ul>
+<li>No effect of visitor presence on ARB levels.</li>
+<li>Significant differences in ARB levels between enclosure types.</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-10-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>No effect of visitor presence on ARB levels.</li>
+<li>Significant differences in ARB levels between enclosure types.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-behaviour-diversity" class="slide level2">
+<h2>Results: Behaviour diversity</h2>
+<div class="goal">
+<ul>
+<li>Behaviour diversity of zoo safari and off-display enclosures higher than on-display enclosures.</li>
+<li>No significant effect of visitor presence on behaviour diversity.</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-11-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Behaviour diversity of zoo safari and off-display enclosures higher than on-display enclosures.</li>
+<li>No significant effect of visitor presence on behaviour diversity.</li>
+<li>We also found a large variation in the welfare measures of off-display lions.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-enclosure-usage" class="slide level2">
+<h2>Results: Enclosure usage</h2>
+<div class="goal">
+<ul>
+<li>Enclosure usage became slightly more homogenous at on-display enclosures on “no-visitor” days.</li>
+<li>Significant differences in enclosure usage between enclosure types.</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-12-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Enclosure usage became slightly more homogenous at on-display enclosures on “no-visitor” days.</li>
+<li>However due to poor enclosure complexity it was never at the same level as off-display enclosures.</li>
+<li>Significant differences in enclosure usage between enclosure types.</li>
+<li>No tangible visitor effect.</li>
+<li>We also noticed a large variation in the enclosure usage of off-display animals.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<div class="goal">
+<ul>
+<li><p>Lions housed at off-display and zoo-safari areas had significantly higher levels of behaviour diversity compared to on-display animals.</p></li>
+<li><p>On-display enclosures are poorly-equipped to meet the welfare requirement of Asiatic lions.</p></li>
+<li><p>Some of the lions housed at high-complexity off-display enclosures had behaviour diversity levels similar to the on-display animals.</p></li>
+<li><p>I found no discernible effect of visitor presence on behaviour diversity, enclosure usage or ARB levels.</p></li>
+<li><p>If an enclosure is large and complex it can offset the effects of visitor presence.</p></li>
+<li><p>Lack of enclosure complexity can exacerbate the effects of visitor presence.</p></li>
+<li><p>The wide variation in welfare outcomes in off-display enclosure lions require further investigation.</p></li>
+</ul>
+</div>
+<aside class="notes">
+<ul>
+<li><p>These findings highlight several glaring issues pertaining to the welfare of captive felids at Indian zoos. Particularly, the gross welfare inequity within the same zoological institution.</p></li>
+<li><p>The lack of enrichment protocol and species-appropriate furnishing at most enclosures is a significant issue that is frequently overlooked in zoos.</p></li>
+<li><p>Lions housed at the off-display and zoo-safari areas had significantly higher levels of behaviour diversity and enclosure usage.</p></li>
+<li><p>The lions at the off-display enclosures overall showed better welfare outcomes than those at the on-display areas. However the wide variation in the welfare outcomes of lions housed at the off-display enclosure suggests that there are other factors which might be affecting the welfare of these animals other than the external ones.</p></li>
+<li><p>Therefore we must look at the internal factors or the inter-individual variations in the subject pool to understand the reasons for differential welfare outcomes under similar housing conditions.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+<p>Chapter 1</p>
+</div>
+</section>
+<section id="chapter-2-effects-of-personality-and-rearing-history-on-the-welfare-of-asiatic-lions" class="slide level2 h2">
+<h2>Chapter 2: Effects of personality and rearing-history on the welfare of Asiatic lions</h2>
+<div class="columns">
+<p><img data-src="figures/P1060452.JPG" width="900" height="450"> <img data-src="figures/P1100006.png" width="900" height="450"></p>
+</div>
+<h3 id="objectives-1">Objectives</h3>
+<div class="goal">
+<ul>
+<li><p>How differences in bold/shy personality traits, rearing history, sex, and social grouping are associated with variations in behavioural welfare outcomes in a group of captive Asiatic lions?</p></li>
+<li><p>How are the behavioural and physiological welfare indices interlinked?</p></li>
+</ul>
+</div>
+
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li>To answer the welfare variation in the lions at the off-display enclosures I looked at internal factors affecting welfare.</li>
+<li>I asked if personality, sex, grouping type and rearing history were associated with changes in welfare outcomes.</li>
+<li>I also wanted to understand how the behavioural and physiological welfare indices were associated with each other.</li>
+<li>We published this study in 2020.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><div>
+<p>Goswami, S., Tyagi, P.C., Malik, P.K., Pandit, SJ, Kadivar, R.F., Fitzpatrick, M., Mondol, S. 2020. Effects of personality and rearing-history on the welfare of captive Asiatic lions (Panthera leo persica) PeerJ 8:e8425 <a href="https://doi.org/10.7717/peerj.8425" class="uri">https://doi.org/10.7717/peerj.8425</a></p>
+</div></aside></section>
+<section id="study-design-1" class="slide level2">
+<h2>Study design</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/chapter3d.png"></p>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="goal">
+<ul>
+<li>15 enclosures all off-display, large and naturalistic in design.</li>
+<li>N = 35(14:21).</li>
+<li>Rescued = 19 (11:8).</li>
+<li>Captive-born = 16(3:13).</li>
+<li>Mean-age= 7.6 years (SD = 3.9 years).</li>
+<li>Pair-housed = 17.</li>
+<li>Group-housed = 18.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Study subjects were 35 adult Asiatic lions housed across 15 large naturalistic enclosures.</li>
+<li>19 of these individuals were rescued from the wild either as sub-adults or adults</li>
+<li>The rest were born in captivity.</li>
+<li>At the time of the study the average age of the subjects ranged between 4-10 years.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="methodology-1" class="slide level2">
+<h2>Methodology</h2>
+<div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Chapter3.png" width="1900" height="1000"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+</section>
+<section id="methods-personality-assessment" class="slide level2">
+<h2>Methods: Personality assessment</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<!-- ![](figures/asiaticlionnovel.mp4) -->
+<video data-autoplay="" src="figures/asiaticlionnovel.mp4">
+</video>
+</div><div class="column" style="width:40%;">
+<div class="goal">
+<ul>
+<li>Bold and shy continuum indicator of cognitive ability.</li>
+<li>Keeper rating bold or shy score of 9-1 ( 9 being very bold and 1 very shy) on 15 personality attributes.</li>
+<li>Latency to a 10 minute exposure to non-food novel object.</li>
+<li>Cronbach’s alpha or agreeability between rating and coding.</li>
+<li>Subjects tested alone.</li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li>Personality: 21 bold, 14 shy.</li>
+<li>Rearing history: 16 captive-born, 19 wild-rescued.</li>
+<li>Sex: 14 males, 21 females.</li>
+<li>Social grouping: 18 group-housed, 17 pair-housed</li>
+</ul>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<p>I already knew about the rearing history of the subjects. - To categorize subjects based on boldness or shyness, I took a two-pronged approach - first, I asked keepers with more than three years of experience to rate subjects on a scale of 1-9 on 15 personality attributes. - Then I introduced each subject separately to non-food novel objects and recorded their reaction - Independent observers recorded the latency times to react to novel objects and the type of behavior ( playful, fearful, curious) performed by the animal. - I created our own list of bold and shy animals and compared the same with keepers. - I only included individuals whose personality traits were agreed upon by keepers and observers.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="methods-corticosterone-metabolite-extraction" class="slide level2" style="text-align:center;">
+<h2>Methods: Corticosterone metabolite extraction</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/workflow.png"></p>
+<p></p><figcaption>Workflow for hormone metabolite extraction</figcaption><p></p>
+</figure>
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li>I collected two faecal samples per subject and Preserved the entire sample in a freezer before they were lyophilized and pulverized for the next step.</li>
+<li>after thoroughly mixing the dried fecal powder we extracted hormone we pulse vorted o.1 gm of fecal pwder in 15ml of 70% ethanol followed by centrifugation at 2200rpm for 20 minutes.</li>
+<li>the hormone extracts were stored at -20degrees in cryochill vials.</li>
+<li>Shiv Patel and I used arbor assay corticosterone kit for the ELISA assays to measure faecal corticosterone metabolites and pooled the mean corticosterone FGM means for all animals within our subject groups to calculate test statistics.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="methods-corticosterone-validation" class="slide level2">
+<h2>Methods: Corticosterone validation</h2>
+<p><img data-src="figures/cortaccuracy.png" style="align:center;"></p>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<p>We tested for prallelism and accuracy to validate the corticosterone assay. - For parallelism we pooled extracts from a random combination of samples to find optimal dilutions for final assays. - We plotted relative dose against the standard and a parallel slope indicates similar immunoreactivity to the standard solution. - For accuracy test we spiked corticosterone standards with different dilutions of the same faecal concentrate solution. and plotted the results using observed and expected concentrations to ensure that faecal contaminants did not interefere with the results. - to ensure reliability, We also calculated intra and inter assay coefficients of variation using repeated measures of same pooled extracts .</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-comparison-of-welfare-measures" class="slide level2">
+<h2>Results: Comparison of welfare measures</h2>
+<div class="goal">
+<ul>
+<li>No difference in welfare measures based on sex, and social grouping.</li>
+<li>Welfare measures primarily vary based on personality-trait and rearing-history.</li>
+</ul>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/compvar.png" height="700"></p>
+</figure>
+</div>
+<div class="cell" data-fig.showtext="true">
+
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li>I found that behavioural and physiological welfare measures differed primarily between personality traits and rearing history.</li>
+<li>Sex, and Social grouping had no impact on the welfare variations.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-latency-to-novel-objects" class="slide level2 h2">
+<h2>Results: Latency to novel objects</h2>
+<div class="goal">
+<p>Latency levels were significanly lower in bold subjects compared to shy subjects hence corroborating the keeper ratings.</p>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-14-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Latency scores validated the keeper ratings and our classification of subjects on the bold-shy continuum.</li>
+<li>We also found that Most wild-rescued animals were categorized as shy while most captive animals were categorized as bold.</li>
+<li>We can speculate that this is probably something to do with the fact that the captive-born animals are accustomed to the captive environment and are not neophobic to humn introduced devices inside the enclsoures.</li>
+<li>The two largest groups Bold captive and shy wild animals differed significantly on the latency scores.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-aberrant-repetitive-behaviours-arb-1" class="slide level2 h2">
+<h2>Results: Aberrant repetitive behaviours (ARB)</h2>
+<div class="goal">
+<p>ARB levels differed significantly across bold and shy lions.</p>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-15-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Movement based ARBs like swaying, nose-rubbing, and pacing were very common</p>
+<ul>
+<li>If you focus on the captive bold and wildshy animals, you will notice that they are quite different.</li>
+<li>it is interesting to note that there is a certain amount of overlap across the groups.</li>
+<li>Curiously the captivebold animals and wild bold animals are quite similar to each other.</li>
+<li>Similarly, the captive-shy and wild-shy animals are quite similar in their proportion of ARBs.</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-behaviour-diversity-1" class="slide level2">
+<h2>Results: Behaviour diversity</h2>
+<div class="goal">
+<p>Behaviour diversity levels varied significantly between bold-captive and shy-wild groups.</p>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/fig-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Behaviour diversity is an important positive indicator for animal welfare that has gained popularity in the past few decades.</li>
+<li>I used the Shannon Weiner diversity index to calculate it.</li>
+<li>Results
+<ul>
+<li><p>Here I see a similar trend that was highlighted in the ARb section</p></li>
+<li><p>Captivebold and wildshy animals were diametrically opposite to one another, and the captiveshy and wildbold animals lay somewhere in between.</p></li>
+<li><p>It was interesting to note that the captive origin animals had higher behaviour diversity than the wild origin animals.</p></li>
+<li><p>This loss in behaviour diversity in wild animals could be speculatively attributed to the fact that most of them were rescued as adults.</p></li>
+<li><p>Hence in captivity, these wild-rescued lions do not have access to the complex range of stimuli linked with diverse behavioral repertoires.</p></li>
+<li><p>Although the enclosures at SZG are large, naturalistic, and provide for the captive-born animals, they are unable to meet the requirement of the wild-rescued individuals.</p></li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-enclosure-usage-1" class="slide level2">
+<h2>Results: Enclosure usage</h2>
+<div class="goal">
+<p>Captive-Bold lions used enclosure space more homogenously as compared to the rest of the lions.</p>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-16-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-fig.showtext="true">
+
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>I calculated the spread of the participation index that measures the homogeneity of enclosure usage.</p></li>
+<li><p>Results</p></li>
+<li><p>SPI value of 1 means that animals have a significant preference for one or two zones and do not use the rest of the areas.</p></li>
+<li><p>I found that the SPI values for wild shy animals were uncomfortably high, which meant that they spent most of their time at a single part of the enclosure without exploring the other zones.</p></li>
+<li><p>Therefore I see that wild-rescued shy animals are performing more stereotypy, showing fewer species-typical behaviours and performing more aberrant behaviors as compared to captive born animals.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-faecal-corticosterone-metabolite-levels" class="slide level2">
+<h2>Results: Faecal corticosterone metabolite levels</h2>
+<div class="goal">
+<p>Wild-rescued and shy individuals had the highest corticosterone levels compared to other lions.</p>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-18-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li>I found that there was a significant difference between wild-shy and captive-Bold animals. moreover, there was a significant difference between bold and shy wild-rescued lions.</li>
+<li>This goes on to reveal some nuances to the effects of individual variations on the welfare outcomes of individual animals</li>
+<li>This answers the question I raised in chapter 1 regarding the variation in the welfare measures at off-display enclosures.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-correlation-between-welfare-indices" class="slide level2">
+<h2>Results: Correlation between welfare indices</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="figures/corspear.png" width="900" height="1000"></p>
+<div class="cell" data-fig.showtext="true">
+
+</div>
+</div><div class="column" style="width:40%;">
+<div class="goal">
+<ul>
+<li>Behaviour diversity highly negatively correlated with ARB, SPI(enclosure usage) and corticosterone levels.</li>
+<li>Faecal corticosterone metabolite level highly correlated with latency measures, behaviour diversity and ARB levels.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li>I found that behaviour diversity was negatively correlated with ARB, SPI and faecal corticosterone levels.</li>
+<li>It ws interesting to note that faecal corticosterone levels were highly positively correlated to latency levels.</li>
+<li>Next I wanted to check if there was any causal relationship between some of the welfare indices.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="results-relationship-between-behaviour-diversity-enclosure-usage-and-arb" class="slide level2">
+<h2>Results: Relationship between behaviour diversity, enclosure usage and ARB</h2>
+<div class="goal">
+<p>Behaviour_diversity ~ 1.8+ (-0.46)SPI + (-0.046)ARB</p>
+</div>
+<div class="columns">
+<p><img data-src="ppcheck.png" width="600" height="400"> <img data-src="VIF.png" width="600" height="400"> <img data-src="residuals.png" width="600" height="400"></p>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 18px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Regression table for Behaviour diversity ~ enclosure usage + ARB</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> **Characteristic** </th>
+   <th style="text-align:left;"> **Beta** </th>
+   <th style="text-align:left;"> **95% CI** </th>
+   <th style="text-align:left;"> **p-value** </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> SPI </td>
+   <td style="text-align:left;"> -0.46 </td>
+   <td style="text-align:left;"> -0.87, -0.04 </td>
+   <td style="text-align:left;"> 0.031 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ARB </td>
+   <td style="text-align:left;"> -0.05 </td>
+   <td style="text-align:left;"> -0.06, -0.04 </td>
+   <td style="text-align:left;"> &lt;0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R² </td>
+   <td style="text-align:left;"> 0.850 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Adjusted R² </td>
+   <td style="text-align:left;"> 0.841 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> df </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AIC </td>
+   <td style="text-align:left;"> -27.6 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> No. Obs. </td>
+   <td style="text-align:left;"> 35 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li>85% of variance in Behaviour diversity was explained by enclosure usage and ARB.</li>
+<li>I scaled the variables before conducting the analysis.</li>
+<li>I also checked for multicollinearity to account for the correlation between SPI and ARB.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="summary-1" class="slide level2">
+<h2>Summary</h2>
+<div class="goal">
+<ul>
+<li><p>Personality and rearing-history strongly associated with welfare indices.</p></li>
+<li><p>Wild-rescued animals with shy personalities need more care.</p></li>
+<li><p>Individual-tailored husbandry regimes required.</p></li>
+<li><p>Multi-dimensional welfare assessment necessary to optimise captive animal management.</p></li>
+<li><p>Sex and social grouping does not affect welfare measures.</p></li>
+<li><p>Behavioural welfare indices are reliable indicators for physiological stress.</p></li>
+<li><p>Behaviour diversity levels were explained by enclosure usage pattern and ARB levels.</p></li>
+<li><p>Further investigations required to understand the strong correlation between FGM levels and latency values.</p></li>
+</ul>
+</div>
+<div class="footer">
+<p>Chapter 2</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Personality and rearing history account for some of the inter-individual differences in welfare outcomes.</li>
+<li>These findings challenge the current notion that wild animals are likely to have higher behaviour diversity.</li>
+<li>findings suggest that context matters. wild animals rescued and brought into captivity loose the stimulus to perform a significant amount of their typical behavior repertoire. while captive born animals in our study have retained most of their repertoire.</li>
+<li>Therefore enclosure design and management practices for wild-rescued animals have to be designed to meet their unique requirement.</li>
+<li>Contrary to some existing research I found that sex and social grouping did not affect welfare variations under similar husbandry conditions.</li>
+<li>While I found that behavioural welfare indices were in line with physiological measures. I discovered that behaviour diversity of an animal was primarily explained by the enclosure usage pattern and the level of ARB expressed by them.</li>
+<li>Therefore zoo managers must pay special attention to individuals who develop enclosure zone bias and start performing displacement behaviours.</li>
+<li>I found that latency to novel object was highly correlated to the FGM level of subjects. This needs further investigation.</li>
+<li></li>
+<li></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="chapter-3-effects-of-a-combined-enrichment-approach-on-the-welfare-of-asiatic-lions" class="slide level2" style="text-align:center;">
+<h2>Chapter 3: Effects of a combined enrichment approach on the welfare of Asiatic lions</h2>
+<div class="columns">
+<p><img data-src="figures/P1070704.JPG" width="600"> <img data-src="figures/image19.jpeg" width="600"> <img data-src="figures/image21.png" width="600"></p>
+</div>
+<h3 id="objectives-2">Objectives</h3>
+<div class="goal">
+<p>Can enrichment interventions improve welfare and encourage positive affective states in Asiatic lions?</p>
+</div>
+
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Finally I wanted to check if enrichment interventions could bring a positive impact on the welfare idnices of the asiatic lions.</li>
+<li>So I designed a study to measure the impacts of an enrichment intervention on the off-display housed lions.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><div>
+<p>Goswami, S., Patel, S. K., Kadivar, R., Tyagi, P. C., Malik, P. K., &amp; Mondol, S. (2021). Effects of a combined enrichment intervention on the behavioural and physiological welfare of captive Asiatic lions (<em>Panthera leo persica</em>). Applied Animal Behaviour Science, 236, 105222. <a href="https://doi.org/10/gjq5dv" class="uri">https://doi.org/10/gjq5dv</a>,</p>
+</div></aside></section>
+
+<section id="study-design-2" class="slide level2">
+<h2>Study design</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/chapter4.png" width="1900"></p>
+</figure>
+</div>
+<div class="goal">
+<ul>
+<li>Subjects randomly divided into control(N =16, seven enclosures) and test group(N =19, seven enclosures).</li>
+<li>Baseline period lasted 14 days with weekly scat collection.</li>
+<li>Enrichment interventions were made for one week period.</li>
+<li>14 days of post-enrichment data collection commenced.</li>
+</ul>
+</div>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+<aside class="notes">
+<ul>
+<li>I used 35 Asiatic lions housed at 14 enclisures for this study.</li>
+<li>Enclosures were randomly assigned to control and test enclosures.</li>
+<li>Baseline behaviour observation with weekly scat collection commenced for 14 days for both control and test groups.</li>
+<li>After that I introduced a combined enrichment intervention at the test enclosures, while no changes were made to the control enclosures.</li>
+<li>Following a one week habituation period. I collected post-treatment data on both control and test group subjects to measure the impacts of the enrichment interventions.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="methodology-2" class="slide level2">
+<h2>Methodology</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/chapter4method1.png" height="1000"></p>
+</figure>
+</div>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="enrichment-types-used" class="slide level2 scrollable">
+<h2>Enrichment types used</h2>
+<h3 id="enclosure-enrichment">Enclosure enrichment</h3>
+<div class="goal">
+<p>Enrichment is defined as any device, or management practice that is designed to provide captive animals</p>
+<ul>
+<li>More control over captive environment.</li>
+<li>Add behavioural choices.</li>
+<li>Promote species-appropriate repertoires.</li>
+<li>Allow them to cope with challenges.</li>
+</ul>
+</div>
+<h3 id="type-of-enrichment">Type of enrichment</h3>
+<div class="cell" data-fig.showtext="true">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 20px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Description of enrichment devices</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Sl. no </th>
+   <th style="text-align:left;"> Enrichment device </th>
+   <th style="text-align:left;"> Enrichment type </th>
+   <th style="text-align:left;"> Description </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 1 </td>
+   <td style="text-align:left;width: 3cm; "> Platform </td>
+   <td style="text-align:left;width: 3cm; "> Manipulable </td>
+   <td style="text-align:left;"> A log platform made to enable subjects to access vantage points within the enclosure. </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 2 </td>
+   <td style="text-align:left;width: 3cm; "> Sam ball </td>
+   <td style="text-align:left;width: 3cm; "> Manipulable </td>
+   <td style="text-align:left;"> A hard-plastic ball with no holes or perforations. </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 3 </td>
+   <td style="text-align:left;width: 3cm; "> Log branches </td>
+   <td style="text-align:left;width: 3cm; "> Manipulable </td>
+   <td style="text-align:left;"> Tree logs sections with bark suspended from trees. </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 4 </td>
+   <td style="text-align:left;width: 3cm; "> Lion bite ball </td>
+   <td style="text-align:left;width: 3cm; "> Manipulable </td>
+   <td style="text-align:left;"> A hard-plastic ball with a rattle inside suspended by a bungee rope with canvas sheet that acts as a bite. </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 5 </td>
+   <td style="text-align:left;width: 3cm; "> Buffalo shank </td>
+   <td style="text-align:left;width: 3cm; "> Feeding </td>
+   <td style="text-align:left;"> Buffalo shank suspended from a zipline. </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 6 </td>
+   <td style="text-align:left;width: 3cm; "> Chicken carcass </td>
+   <td style="text-align:left;width: 3cm; "> Feeding </td>
+   <td style="text-align:left;"> Frozen Chicken carcass suspended from a tree by natural fibres. </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 7 </td>
+   <td style="text-align:left;width: 3cm; "> Buffalo tail </td>
+   <td style="text-align:left;width: 3cm; "> Feeding </td>
+   <td style="text-align:left;"> Skinned buffalo tail suspended from tree branches. </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 8 </td>
+   <td style="text-align:left;width: 3cm; "> Buffalo blood frozen </td>
+   <td style="text-align:left;width: 3cm; "> Feeding </td>
+   <td style="text-align:left;"> Frozen buffalo blood cubes, provided on a clean concrete platform. </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 9 </td>
+   <td style="text-align:left;width: 3cm; "> Star anise oil mixed with garlic </td>
+   <td style="text-align:left;width: 3cm; "> Sensory </td>
+   <td style="text-align:left;"> Sprayed on tree trunks or used to create scent trails to other enrichment devices. </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 10 </td>
+   <td style="text-align:left;width: 3cm; "> Prey dung </td>
+   <td style="text-align:left;width: 3cm; "> Sensory </td>
+   <td style="text-align:left;"> Sambar (Rusa unicolor) dung smeared on tree trunks or mixed with enclosure soil at certain zones. </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;width: 1cm; "> 11 </td>
+   <td style="text-align:left;width: 3cm; "> Conspecific urine </td>
+   <td style="text-align:left;width: 3cm; "> Sensory </td>
+   <td style="text-align:left;"> Earth drenched in the urine conspecifics from nearby enclosures smeared on tree trunks, or mixed with enclosure substrate at certain zones. </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="setting-up-enrichment" class="slide level2">
+<h2>Setting up enrichment</h2>
+
+<img data-src="figures/image9.jpeg" width="1900" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="setting-up-enrichment-1" class="slide level2">
+<h2>Setting up enrichment</h2>
+
+<img data-src="figures/image10.jpeg" width="1900" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="setting-up-enrichment-2" class="slide level2">
+<h2>Setting up enrichment</h2>
+
+<img data-src="figures/image11.jpeg" width="1900" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="enrichment-use-manipulable-enrichment" class="slide level2">
+<h2>Enrichment use: Manipulable enrichment</h2>
+
+<img data-src="figures/jenifer.gif" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="enrichment-use-sensory-enrichment" class="slide level2">
+<h2>Enrichment use: Sensory enrichment</h2>
+
+<img data-src="figures/image19.jpeg" width="1900" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="enrichment-use-feed-based-enrichment" class="slide level2">
+<h2>Enrichment use: Feed-based enrichment</h2>
+
+<img data-src="figures/image21.png" width="1900" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="modification-of-enclosure-furniture" class="slide level2">
+<h2>Modification of enclosure furniture</h2>
+
+<img data-src="figures/P1060462.JPG" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="modification-of-enclosure-furniture-1" class="slide level2">
+<h2>Modification of enclosure furniture</h2>
+
+<img data-src="figures/perch2.JPG" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="combined-enrichment-intervention" class="slide level2">
+<h2>Combined enrichment intervention</h2>
+<!-- ![](figures/lionenr4.mp4) -->
+<video data-autoplay="" src="figures/lionenr4.mp4" width="1800px" height="1000px" controls="controls">
+</video>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="results-enrichment-preference" class="slide level2">
+<h2>Results: Enrichment preference</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell" data-layout-align="center" data-fig.showtext="true" data-fig.dim="[12,9]">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/enrichment_pref-1.png" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="goal">
+<ul>
+<li>Feed based enrichment were the first preference for all subjects.</li>
+<li>A combination of manipulable and sensory enrichment with integrated food rewards had the highest engagement time.</li>
+<li>Social interactions increased with manipulable enrichment.</li>
+<li>Exploratory behaviours increased with sensory enrichments.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="results-behaviour-diversity-2" class="slide level2">
+<h2>Results: behaviour diversity</h2>
+<div class="goal">
+<ul>
+<li>Behaviour diversity increased significantly in test group but remained unchanged for control group.</li>
+</ul>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-23-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="results-enclosure-usagespi" class="slide level2">
+<h2>Results: Enclosure usage(SPI)</h2>
+<div class="goal">
+<p>Post-enrichment test group subjects used enclosure sapce more homogenously.</p>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-24-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="results-aberrant-repetitve-behaviours-arb" class="slide level2">
+<h2>Results: Aberrant repetitve behaviours (ARB)</h2>
+<div class="goal">
+<p>Stereotypy levels decreased significantly in test group subjects but remained unchanged for control group.</p>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-25-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="results-faecal-corticosterone-metabolites" class="slide level2">
+<h2>Results: Faecal corticosterone metabolites</h2>
+<div class="goal">
+<p>Corticosterone levels decreased in test group subjects</p>
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+
+</div>
+<div class="cell" data-fig.showtext="true">
+
+</div>
+<div class="cell" data-layout-align="center" data-fig.showtext="true">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-28-1.png" width="1600" height="700"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+<aside class="notes">
+<p>the</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="chapter-summary" class="slide level2">
+<h2>Chapter summary</h2>
+<div class="goal">
+<ul>
+<li>Enrichment interventions led to positive impact on the behavioural and physiological welfare indices.</li>
+<li>A universal welfare evaluation framework.</li>
+<li>A combined enrichment approach of manipulable, feeding and sensory enrichment is best suited for long term engagement for Asiatic lions.</li>
+<li>All enrichment devices should be provided in excess at multiple locations.</li>
+<li>High value food rewards create positive reinforcement to novel objects.</li>
+<li>Tailored enrichment interventions should be integrated with the management practices of all captive felids.</li>
+</ul>
+</div>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Animal welfare not only means prevention of cruelty, it also seeks to create opportunities for captive animals to experience positive affective states.</p></li>
+<li><p>Our study is the first to showcase the impact of enrichment interventions on the behavioural and physiological welfare of Asiatic lions conclusively.</p></li>
+<li><p>The welfare measurement framework used in this study is largely species-agnostic and can be applied to any modern zoological institution to assess welfare impacts of goal-oriented enrichment interventions.</p></li>
+<li><p>I found that enrichment devices specially manipulable and feed based enrichment create a positive relation with novel objects and lead to better welfare outcomes and longer engagement times. however there should be a large number of such objects to prevent infighting and aggressive monopolizations.</p></li>
+<li><p>The enrichment interventions shown here require little monetary input but can have large positive welfare impacts. Therefore it is suggested to incorporate them in the management of large captive felids at Indian zoos and conservation breeding programmes.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="summary-and-recommendations" class="slide level2">
+<h2>Summary and recommendations</h2>
+<div class="goal">
+<ul>
+<li>Animal welfare is affected by enclosure complexity.</li>
+<li>Personality and rearing history cause differential welfare outcomes to similar management practices.</li>
+<li>Bold and shy personality traits are ubiquitous across both rearing-history types.</li>
+<li>Enclosure enrichment integrated with daily husbandry can lead to positive welfare outcomes.</li>
+</ul>
+</div>
+<h3 id="recommendations">Recommendations</h3>
+<ul>
+<li>Animal welfare should be the driver of captive animal management.</li>
+<li>Both external and internal factors should be considered while measuring welfare in captive animals.</li>
+<li>Inter-individual differences can lead to differential welfare outcomes to similar husbandry practices.</li>
+<li>Enrichment interventions can improve welfare parameters significantly.</li>
+<li>Lack of scientific inputs and manpower should be addressed.</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Animal welfare is an overlooked aspect of captive animal management across most Indian zoos and conservation breeding centers.</li>
+<li>My thesis shows that animal welfare is dependent on the enclosure complexity and it species appropriateness followed by internal factors like personality and rearing history.</li>
+<li>Finally, Enrichment interventions are very effective in creating opportunities for good welfare and should be integrated with incumbent management practices.</li>
+<li>I have visited several small medium and large zoos in India and one thing stands out. There is a distinct lack of manpower at most of them.</li>
+<li>Zoo management need to invest in keeper training and zoo biologists to address the welfare epidemic at Indian zoos.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+<p>Chapter 3</p>
+</div>
+</section>
+<section id="suggestions-for-the-asiatic-lion-conservation-breeding-programme" class="slide level2">
+<h2>Suggestions for the Asiatic lion Conservation breeding programme</h2>
+<!-- ![](figures/aslion.png){height="100%"} -->
+<div class="goal">
+<p>The objective of the Conservation Breeding Programme is not oriented on the taking individuals from the wild but to give to the wild. The zoo individual are used as insurance for the use in future with aim only to complement and supplement the <em>in-situ</em> population. (Central Zoo Authority, India)</p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-fig.showtext="true">
+<div class="cell-output-display">
+<p><img data-src="phd_viva_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
+</div>
+</div>
+<ul>
+<li>Unstable captive population.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="recommendations-1">Recommendations</h3>
+<div class="goal">
+<ul>
+<li>Appropriateness of approach.</li>
+<li>Clear definition of success.</li>
+<li>Constant welfare monitoring of captive population as measures of success.</li>
+<li>A clear roadmap to repatriation of individuals.</li>
+<li>Financial accountability.</li>
+<li>Publication of results.</li>
+</ul>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p>I created this graph by extracting data from the studbook data of Asiatic lions which shows that since 2010. The captive population of the CBP at SZP has been augmented primarily by wild-rescued lions as opposed to animals born in captivity. This may be linked to several issues such high juvenile mortality and low genetic diversity that has been highlighted other researchers. But it definitely requires us to audit the existing management practices and make policy changes to the management of Asiatic lions.</p></li>
+<li><p>Conservation breeding programmes have turned into a panacea and Indian zoos presently accommodate such programmes for 25 endangered endemic species.</p></li>
+<li><p>Unfortunately, Indian conservation breeding programmes seldom publish animal welfare reports and there is little evidence to suggest the existence of an active welfare monitoring programme at most sites.</p></li>
+<li><p>Despite the overwhelming evidence for enrichment interventions few zoos have an active enrichment-linked management policy for any endangered species.</p></li>
+<li><p>The Asiatic lion conservation breeding programme has been operational since 1995. with breeding records dating back to 1958.</p></li>
+<li><p>The goal of the conservation breeding plan was to create a captive population as an insurance policy. Now that the goal has been achieved, why not start with the repatriation of some animals to reclaimed habitats?</p></li>
+<li><p>There is an urgent need to recalibrate the management practice for Asiatic lions. So that these animals become fit for successful repatriation.</p></li>
+<li><p>The conservation story of Asiatic lions prominently features 59 research papers and over a dozen doctoral thesis on the wild population.</p></li>
+<li><p>Yet it took over two decades for us to address the welfare status of the captive population housed in the Conservation breeding programme.</p></li>
+<li><p>I hope that our study sparks the conversation about animal welfare at Indian CBP. and inspires researchers, academics and zoo managers to audit incumbent management practices.</p></li>
+<li><p>Finally I hope that the managers and ecologists realize the importance of this conservation breeding programme and take it to the reintroduction phase.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+<p>Recommendations</p>
+</div>
+</section>
+<section id="publications" class="slide level2">
+<h2>Publications</h2>
+
+<img data-src="figures/peerjpub.png" class="r-stretch quarto-figure-center"></section>
+<section id="publications-1" class="slide level2">
+<h2>Publications</h2>
+
+<img data-src="figures/appab.png" class="r-stretch quarto-figure-center"></section>
+<section id="conferences" class="slide level2">
+<h2>Conferences</h2>
+
+<img data-src="figures/WAFL.png" class="r-stretch quarto-figure-center"></section>
+<section id="conferences-1" class="slide level2">
+<h2>Conferences</h2>
+
+<img data-src="figures/ABS.png" class="r-stretch quarto-figure-center"></section>
+<section id="acknowledgments" class="slide level2">
+<h2>Acknowledgments</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size:0.7em">
+<h4 id="wildlife-institute-of-india">Wildlife Institute of India</h4>
+<ul>
+<li>Director and Dean Wildlife Institute of India.</li>
+<li>Research Coordinator, Wildlife Institute of India.</li>
+<li>Dr.&nbsp;Samrat Mondol, PhD supervisor.</li>
+<li>Sh. P.C. Tyagi, Project Investigator.</li>
+<li>Dr.&nbsp;P.K. Malik, Project Investigator.</li>
+<li>Dr.&nbsp;Parag Nigam, CBZM cell.</li>
+<li>Dr.&nbsp;K. Ramesh.</li>
+<li>Dr.&nbsp;V.P. Uniyal.</li>
+<li>Dr.&nbsp;Anupam Srivastav.</li>
+<li>Dr.&nbsp;Bivash Pandav.</li>
+<li>Kausik, Abesh, Santanu, Parabita, Sutirtha, Manjari Roy, Stotra, Shiv Patel, Suvankar Biswas and other members of WII-community.</li>
+</ul>
+<h4 id="zoological-society-of-london">Zoological Society of London</h4>
+<ul>
+<li>Dr.&nbsp;Gitanjali Bhattacharya, Dr.&nbsp;Malcolm Fitzpatrick, Mr.&nbsp;Julien Godfrey.</li>
+</ul>
+<h4 id="gujarat-forest-department">Gujarat Forest Department</h4>
+<ul>
+<li>Dr.&nbsp;S. C. Pant, former PCCF , Gujarat.</li>
+<li>Mr.&nbsp;S. J. Pandit, Director, Sakkarbaug Zoo.</li>
+<li>Dr.&nbsp;R. Kadivar, Veterinarian, Sakkarbaug Zoo.</li>
+<li>Salim Chuvan and team, Animal keepers, Sakkarbaug Zoo.</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<h4 id="forest-research-institute"><span style="font-size:0.7em">Forest Research Institute</span></h4>
+<div style="font-size:0.7em">
+<ul>
+<li>Dr.&nbsp;Varshney, Scientist-F.</li>
+</ul>
+</div>
+<h4 id="field-assistant"><span style="font-size:0.7em">Field assistant</span></h4>
+<div style="font-size:0.7em">
+<ul>
+<li>Mr Ali Asgar Bloch.</li>
+</ul>
+</div>
+<h4 id="special-mentions">Special mentions</h4>
+<div style="font-size:0.8em">
+<ul>
+<li>My mother, Mrs.&nbsp;Swapna Goswami.</li>
+<li>Ms.&nbsp;Manjari Malviya, my better half.</li>
+<li>Sh PC Tyagi, IFS.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="thank-you" class="slide level2">
+<h2><span style="text-align:center;font-size:3em;">Thank you</span></h2>
+
+<img data-src="figures/image31.png" class="r-stretch quarto-figure-center"><div class="footer footer-default">
+
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="phd_viva_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="phd_viva_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="phd_viva_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="phd_viva_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="phd_viva_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="phd_viva_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="phd_viva_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="phd_viva_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="phd_viva_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="phd_viva_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'fast',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+
+        height: 1080,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 2.0e-2,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        setTimeout(function() {
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          let href = ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    });
+    </script>
+    
+
+</body></html>
