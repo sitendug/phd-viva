@@ -1,0 +1,2409 @@
+---
+format: 
+ revealjs:
+  theme: custom.scss
+  transition: none
+  slide-number: true
+  transition-speed: fast
+  background-transition: none 
+  backgroundcolor: "#fff"
+  # logo: "figures/wiilogo.png"
+  auto-stretch: true
+  self-contained: false
+  progress: true
+  width: 1920
+  height: 1080
+  margin: 0.02
+  # highlight-style: ayu-mirage
+execute: 
+  freeze: true
+  echo: false
+  fig-align: center
+  auto-play-media: true
+  always_allow_html: true
+---
+
+```{r}
+#| echo: false
+#| include: false
+library(tidyverse)
+library(showtext)
+library(readxl)
+#library(easystats)
+library(ggstatsplot)
+#library(fontawesome)
+library(extrafont)
+#library(googlefont)
+library(ggtext)
+library(ggsignif)
+#library(icons)
+# library(xaringanExtra)
+# library(xaringanthemer)
+library(thematic)
+# library(pairwiseComparisons)
+library(ggstatsplot)
+library(ggsignif)
+##]
+library(DescTools)
+library(knitr)
+#library(colourpicker)
+library(magrittr)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+#library(gt)
+library(glue)
+library(ggpubr) # for arranging graphs together in ggarrange
+library(foreign)# used for loading data file sin different formats in r
+library(ggpubr)# required for ggboxplot
+library(psych)
+#loads most of the models required for data wrangling in R
+library(tidyr)
+library(patchwork)
+# library(wesanderson)
+library(reshape2)# join graphs
+library(data.table)# used forfread and data manipulation at varioud levels
+library(sur)
+# setwd("/home/sitendu/Documents/Phd/viva")
+#getwd()
+# thematic::thematic_on(
+#   bg = "#222222", fg = "white", accent = "#0CE3AC",
+#   font = font_spec("Oxanium", scale = 1.25)
+# )
+
+```
+
+```{r}
+#| include: false
+#| echo: false
+#setwd("home/sitendu/rproj")
+getwd()
+raw <- readxl::read_xlsx("data/raw.xlsx", sheet = "peerj submit")
+raw<- raw %>% mutate(across(c(Personality, lifehistory), factor))
+raw <- raw %>% janitor::clean_names()
+raw <- as_tibble(raw)
+#glimpse(raw)
+#setwd("/home/sitendu/rproj/ethogram")
+behave <- read_xlsx("data/enrich.xlsx", sheet = "Sheet9")
+```
+
+# Welfare Status Assessment of Captive Asiatic Lions in Gujarat: An Integrated Approach {style="margin-top:0.5px;font-size:1em;color:#720000;text-align:center;"}
+
+::: {style="margin-top:1px;font-size:0.8em;color:red;text-align:center;margin-top:1px;"}
+Sitendu Goswami
+
+Saurashtra University
+
+Registration number- 16805
+
+PhD Supervisor- Dr. Samrat Mondol (Scientist-E)
+:::
+
+![](figures/Saurashtra-University1scale.png)
+
+
+<img src="figures/wiilogo.png" style="width:356px;height: 100px;"/>
+
+
+## Zoos and animal welfare {.h2}
+
+### Zoological park
+
+> An establishment which maintains a collection of wild animals, typically in a park or gardens, for study, conservation, or display to the public.
+
+### Animal welfare
+
+> Opportunity to express species-typical behaviours to cope with environmental or internal stressors (Broom, 1980).
+
+::: columns
+::: {.column width="40%"}
+<!-- ![](figures/lionarb.mp4){fig-align="center" height="300" width="600"} -->
+<video data-autoplay src="figures/lionarb.mp4"></video>
+:::
+
+::: {.column width="60%"}
+#### Effects of poor welfare
+
+::: goal
+-   Loss of behaviour diversity.
+-   Lowered fertility.
+-   Increased juvenile mortality.
+-   Unstable captive population.
+-   Unfit for repatriation.
+:::
+:::
+:::
+
+::: footer
+Introduction
+:::
+
+::: notes
+Zoos are man made creations.Hence zoos provide a rare glimpse into the ever-changing relationship between nature and man. The objectives of a modern zoo goes beyond public recreation into the fields of conservation breeding and ex-situ conservation.
+-  captivity forces animals to relinquish  control over their environment.
+-  Which  leads to chronic stress resulting in a loss of behaviour diversity,  lowered fertility, and other factors leading to a unstable captive population unfit of repatriation to the wilderness.
+- Animal welfare as a concept attempts to provide animals the opportunity to cope with internal and external stressor & thereby regain control which leads to better psychosomatic outcomes.
+:::
+
+## History of animal welfare {visibility="hidden"}
+
+> Opportunity to express species-typical behaviours to cope with environmental or internal stressors.(Broom, 1980)
+
+::: columns
+::: {.column width="50%"}
+![](figures/vanamburgh1846.png)
+:::
+
+::: {.column width="50%"}
+-   Started with a question of animal sentience
+-   became a matter of animal rights
+-   and finally turned into its current form.
+:::
+:::
+
+## History of animal welfare and human-animal relationship {visibility="hidden"}
+
+::: columns
+::: {.column width="60%"}
+::: {layout-nrow="4"}
+![](figures/lionman.png){height="300px" width="200px"} ![](figures/buddha.jpg){height="300px" width="200px"} ![](figures/aristotle.jpg){height="300px" width="200px"} ![](figures/darwin.jpg){height="300px" width="200px"} ![](figures/expression.jpg){height="300px" width="200px"} ![](figures/rambrahmasanyal.jpg){height="300px" width="200px"} ![](figures/handbook.png){height="300px" width="200px"} ![](figures/hediger.png){height="300px" width="200px"} ![](figures/zoobiol.jpg){height="300px" width="200px"} ![](figures/ruth.jpg){height="300px" width="200px"} ![](figures/animalmachines.jpg){height="300px" width="200px"} ![](figures/Broom.jpg){height="300px" width="200px"} ![](figures/broombook.jpg){height="300px" width="200px"}
+:::
+:::
+
+::: {.column width="40%"}
+-   Lion-human figurine(42000 BCE): Oldest artistic representation of man's relationship with nature.
+-   
+-   [Ram Brahma Sanyal]{style="color:#cc0000"} (1892): First handbook of zoo management.
+-   Heini Hediger (1950, 1968): Father of modern zoo biology.
+-   Ruth Harrison (1964): Author of "Animal Machines".
+-   Donald Broom (1991, 2001, 2009, 2011): Refined concepts of animal welfare.
+-   Donald Fraser (1998, 1999, 2008,2009): Farm animal welfare.
+:::
+:::
+
+::: notes
+-   Our present knowledge of the natural world is a thread in the tapestry of human-animal interactions accumulated over millions of years as depicted by the 40,000 year old lion-human figurine.
+
+-   Although animal welfare and sentience are both accepted by modern
+
+-   The first handbook on the management of captive animals in the modern zoo was written by Rambrahma Sanyal the curator of Alipore Zoological gardens,Kolkata. Hence India has a rich history in the field of animal welfare research and captive management. In the recent years there has been a rise in welfare research at Indian zoos
+:::
+
+## Importance of animal welfare
+
+![](figures/welfaremer.png){fig-align="center"}
+
+::: footer
+Introduction
+:::
+
+::: notes
+-  Animal welfare is a well established concept in the modern era.
+-  Although I know the benefits of keeping animals in a good state of welfare. 
+-  The factors contributing to good welfare are not fully understood since they vary contextually. 
+-  Therefore if we keep animals in good health and appropriate social grouping followed by some other confounding factors that we will dicuss today, we can ensure good welfare conditions. 
+-   Animals in good welfare  retain species typical behaviour diversity and therefore have higher chance of survival after reintroduction.
+- Animals in good welfare lead to reliable ex-situ research outcomes.
+- Finally animals in good welfare lead to a more conservation-focused polity that aids in securing long term future for endangered species.
+:::
+
+## Animal welfare and *ex-situ* conservation in India {.h2}
+
+::: {columns}
+![](figures/darwin.jpg){height="300px" width="200px"} ![](figures/expression.jpg){height="300px" width="200px"} ![](figures/rambrahmasanyal.jpg){height="300px" width="200px"} ![](figures/handbook.png){height="300px" width="200px"} ![](figures/hediger.png){height="300px" width="200px"} ![](figures/zoobiol.jpg){height="300px" width="200px"} ![](figures/ruth.jpg){height="300px" width="200px"} ![](figures/animalmachines.jpg){height="300px" width="200px"}
+
+:::
+
+::: goal
+-   Long road to animal sentience.
+-   First book on captive animal management by Mr. Ram Brahma Sanyal, curator of Alipore zoo, 1892.
+-   Advances in zoo biology and animal welfare.
+-   India has 149 zoos and 25 conservation breeding programes for endangered species.
+
+-   Practical animal welfare based management practices continue to elude most captive animals.
+
+-   Asiatic lion conservation breeding programme operational since 1990s.
+
+-   Indian zoos house over 200 Asiatic lions out of the total 349 individuals in captivity.
+:::
+::: footer
+Introduction
+:::
+
+::: notes
+-   By the end of the nineteenth century the debate on animal sentience was resolved by Darwin and several other experts. His  book on the expression and emotion by man and animals showed that animals can truly feel pain.
+- in 1892 the first handbook on captive animal management in zoos was published by the Mr RB Sanyal curator of Alipore zoological garden, India.
+-   For over a century there have been several champions of animal welfare like Dr., Heini hediger the father of zoo biology  and ruth Harrison who brought in the animal  rights movement.
+
+-   India has also witnessed a proliferation in zoos and conservation breeding centers.
+-   There are more than 149 zoos and 25 conservation breeding programmes operational in the country. There are more than 50000 captive animals in Indian zoos.
+-   Unfortunately, research output on the welfare status of animals from these institutions is abysmal.
+-   Although there has been some welfare research on zoo-housed animals. Little to no literature exisits on the welfare of endangered animals housed at Indian conservation breeding centers.
+-  To address this research gap, I looked into the welfare status of Asiatic lions housed at one of the oldest conservation breeding programmes for the species in India at Sakkarbaug zoo Junagadh, Gujarat.
+
+:::
+
+## Sakkarbaug Zoological Park and Asiatic lion conservation
+
+```{r calculate how many wild individuals contributed to the programme}
+#| echo: false
+#| include: false
+#| eval: true
+# We have cleaned the data filed generated in the ealrier chunks and converted it to tblsa.csv, now we shall load that file and do the remainder of our analysis on that file
+data <- read.csv("data/tblsa.csv", header = TRUE, sep = ",")
+# table(data$DOB)
+# glimpse(data)
+data1 <- select(data, c(ID, sire, dame, sex, DOB, offspringt,Event, status, location,captureyear))
+#captured <- select(data, contains("Captured"))
+#View(captured)
+#glimpse(captured)
+# glimpse(data1)
+# now we shall separate the column of DOB
+data1 <- separate(data1, DOB, c("date", "month", "year"), sep = "-")
+# glimpse(data1)
+#data %>% subset(Event == contains("Capture"), location == "JUNAGADH" | location == "GUJARAT") %>% count()
+# table(data1$location)
+data2 <- subset(data1, (location == "JUNAGADH" | location == "GUJARAT")) # so now we are only considering animals that are or have been at some point in junagadh
+# table(data2$sire)
+# table(data2$status)
+# glimpse(data2)
+#tail(data2$ID)
+#data1 <- mutate(data1, )
+# number of individuals with mother wild
+data2 %>% subset(sire == "UNK"| sire == "WILD" | dame == "UNK"| dame == "WILD") %>% count()
+data1 %>% subset(!(sire == "UNK"| sire == "WILD" | dame == "UNK" | dame == "WILD")) %>% count()
+sire <- ggplot(data2, aes(sire), colour = aes("status"))
+sire + geom_bar() + coord_flip()
+# The problem with this method is that we are getting individuals that have unknown parentage contributing disproportionately to the genepool
+# glimpse(data2)
+# str(subset)
+data2 <- select(data2,c(ID, sire, dame, sex, date, month, year, status, location))
+cont <- ggplot(data2, aes(sire)) + geom_bar(aes(y = status, fill = status), data = data2, stat = "identity") + coord_flip() + theme_classic()
+# data2 %>% group_by(status) %>%  
+# this can be done through a stacked barplotu
+# number of individuals with father wild
+# glimpse(data2)
+# data2 %>% summarise(wild = count(sire == "UNK" | sire == "WILD" | dame == "UNK" | dame == "WILD"))
+# number of individuals with both parents wild
+# number of individuals with both parents captive-born
+```
+
+```{r visualization}
+
+#| echo: false
+#| eval: false
+#| include: false
+
+
+# p <- ggplot(data2, aes(x = id, y = sire)) + theme_bw() + geom_bar(data = data2, aes(fill = status)) + coord_flip() +
+#    theme(legend.position="bottom", legend.direction="horizontal",
+#         legend.title = element_blank())
+# p
+#we want to see which of the individuals have both parents wild and contribute the most to the gene pool.
+# to do that we need to check 
+```
+
+```{r }
+#| echo: false
+#| include: false
+ped <- read.csv("data/lionstudbook2.csv", sep = ",", header = TRUE)
+# names(ped)
+# glimpse(ped)
+ped$BirthType = as.factor(ped$BirthType)
+# names(ped)
+library(janitor)
+# clean_names(ped, case = "lower_upper")
+# levels(ped$BirthType)
+# table(ped$Notes)
+# ??clean_names
+# summary(ped$GUAll)
+# sd(ped$Known, na.rm = TRUE)
+# summary(ped$NOffspring, na.rm = TRUE)
+# ped %>% group_by(Year,NOffspring,Certainty) %>% count()
+# ped %>%  mutate(bred = ifelse(NOffspring >= 1, 1, 0)) %>% glimpse() %>% group_by(bred,BirthType) %>% count() # this shows that there are 51 captiveborn individuals that produced offsprings while 150 wild-rescued inidviduals produced offsprings
+# ped %>% filter(location3 == "JUNAGADH") %>% group_by(NOffspring,BirthType) %>%  count() 
+# #library(gganimate)
+ped %>% filter(location3 == "JUNAGADH") %>% mutate(bred = ifelse(NOffspring >= 1, 1, 0)) %>% 
+  group_by(Year, BirthType, bred) %>% 
+  count() %>% ggplot(aes(Year, n , colour = BirthType, frame = Year)) + geom_line() + theme_classic()
+# names(ped)
+# glimpse(ped$Notes)
+# table(ped$AgeClass)
+# table
+```
+
+```{r}
+#| echo: false
+#| include: false
+pmx <- readxl::read_xlsx("data/pmx.xlsx", sheet = "Sheet4")
+# names(pmx)
+# glimpse(pmx)
+#glimpse(ped2)
+ped$BirthType = as.factor(ped$BirthType)
+# names(pmx)
+ped2 <- ped[,c("UniqueID", "NOffspring", "Gen", "F", "Vx", "FOKE", "GUAll", "MK", "KVRank", "FomitU", "BirthType")]
+pmx <- pmx[, c("UniqueID", "Sire", "Dam", "Sex", "diedatbirth","Year","ageyear", "location", "Notes" )]
+pmx <- as_tibble(pmx)
+# table(pmx$location)
+# table(ped$location3)
+pmx3 <- left_join(ped2, pmx, by = c("UniqueID"))
+# View(pmx3)
+# glimpse(pmx3)
+pmx3 <- separate(pmx3, Notes, c("Event1", "Event2", "Event3", "Event4"), sep = " ")
+# glimpse(pmx3)
+pmx3$ageyear <- as.integer(pmx3$ageyear)
+pmx3 <- pmx3 %>% mutate(origin = ifelse(Event1 == "Capture", "rescued", ifelse(Event1 == "Birth", "captiveborn", "rescued"))) 
+library(janitor)
+clean_names(pmx, case = "lower_upper")
+# summary(pmx$Sire)
+pmx3$origin <- as.factor(pmx3$origin)
+library(magrittr) 
+pmx3$ageyear <- as.factor(as.character(pmx3$ageyear))
+# table(pmx3$ageyear)
+cr <- pmx3 %>% filter(location == "JUNAGADH" & diedatbirth == 0 & Year <= 2018) %>%
+  group_by(Year, origin) %>% count() 
+# View(cr)
+cr$origin <- as.character(cr$origin)
+# cr1 <- pmx3 %>% filter(location == "JUNAGADH" & diedatbirth == 0 & Year <= 2018) %>%
+#   group_by(Year, origin) %>% count() %>% 
+#   ggplot(aes(Year, n, colour = origin)) + geom_line()
+# cr1
+library(devtools)
+#install_github("easyGgplot2", "kassambara")
+# or we can make it into a barplot
+# # now lets try to make the x axis at 5 yearly intervals
+ # glimpse(cr)
+ library(ggtext)# for the element_markdown
+# this graph shows the number of new individuals added to the captive population each year since 1955.
+# cr %>% ggplot(aes(Year, n, fill = origin)) + 
+#   geom_bar(stat = "identity") +
+#   scale_x_continuous( breaks = c(1955, 1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2018)) + 
+#   labs(title = " Origin of Asiatic lions <br>  added to the population per year",
+#        y = "Number of new individuals" , 
+#        x = "Years",
+#        fill = "Origin of  animals") +
+#   scale_y_continuous(n.breaks = 12) + 
+#   theme(plot.title = element_markdown(hjust = 0.5))# remember to use "plot.title" rather than just title
+# now lets try to make the x axis at 5 yearly intervals
+# Now we can just look at the last 20 years
+```
+
+```{r}
+#|echo: false
+#|eval: false
+#|fig-align: "center"
+#|layout: [[100,100]]
+# library(gganimate)
+# library(tidyverse)
+# library(ggtext)
+# p<-cr %>% filter(Year %in% 2000:2018) %>%
+#   ggplot(aes(Year, n, fill = origin)) + 
+#   geom_bar(stat = "identity", position = "dodge") + 
+#   scale_x_continuous( breaks = c(2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018)) + coord_flip()+ labs( y = "Number of new individuals" ,
+#        x = "Years",
+#        fill = "Origin of  animals") +
+#   theme_classic()+
+#   geom_text(aes(label = n))+
+#   theme(plot.title = element_markdown(),
+#         legend.position = "bottom") +
+#   coord_flip() +
+#   transition_states(Year)+ 
+#   shadow_mark( colour = 'grey')
+# 
+# animate(p, renderer=gifski_renderer(loop = FALSE))
+# anim_save("aslion.gif", animation = last_animation())
+```
+
+::: {layout-nrow="3"}
+![](figures/nawab-1895.jpg){height="400"} ![](figures/sakkarbaug.png){height="400" width="900"} ![](figures/szg.png){height="400" width="700"}
+:::
+
+-   Founded in 1863 and served the purpose of rescuing, treating and rehabilitating injured and diseased Asiatic lions from the surrounding landscape.
+-   One of the longest running conservation breeding programmes.
+-   Falls within the natural range of the species.
+-   Largest single captive population of Asiatic lions.
+-   Welfare status of lions under-reported.
+
+
+
+
+::: footer
+Introduction
+:::
+
+
+::: notes
+-    Sakkarbaug zoological garden, falls within the natural range of Asiatic lions.
+
+-   Established in 1863 as a menagerie by the Nawabs of Junagadh( a princely state in British India), This zoo has a long history with Asiatic lion conservation.
+
+-   Since its foundation, this zoo has been associated with the rehabilitation and breeding of Asiatic lions and presently houses 60 Asiatic lions, that includes a large number of wild-rescued animals.
+
+-   SZG is of immense importance to Asiatic lion conservation and therefore it is imperative to audit and improve their incumbent management practices for the species regularly.
+
+:::
+
+::: footer
+Introduction
+:::
+
+## Asiatic lion: *in-situ* research highlight
+
+::: goal
+-   Well studied system *in-situ*.
+-   Lack of synergy between the *in-situ* and *ex-situ* conservation approaches for the species.
+:::
+
+| Research Focus                  | Author(year)                                                                                                                           |
+|----------------------------------------------|--------------------------|
+| Ecology of Asiatic lions        | Joslin (1973),Sinha(1987), Meena (2009, 2011), Jhala et al (2009,2020), Banerjee et al (2010,2012), Chakraborti & Jhala ( 2017, 2019). |
+| Lion-human conflict in India    | Saberwal et al (2004), Banerjee et al (2013).                                                                                          |
+| Reintroduction of Asiatic lions | Johnsingh et al (2007).                                                                                                                |
+
+: *in-situ* research on Asiatic lions
+
+::: footer
+Introduction
+:::
+
+::: notes
+There are presently 674 Asiatic lions in the wild, and 300 lions form the global captive population.
+
+-   While in-situ research on Asiatic lions has led to several affirmative conservation actions, there have been few studies reported from the ex-situ management program for the species in their range country.
+:::
+
+## Asiatic lion: *ex-situ* research highlight
+
+::: goal
+-   No studies on the welfare of lions in a conservation breeding programme.
+-   Small sample sizes.
+-   Dearth of welfare audit from range country.
+:::
+
+| Research Focus                                            | Author(year)                   |
+|-----------------------------------------------------------|--------------------------------|
+| Genetic linkage between Asiatic and African lions         | O'Brien(1987)                  |
+| Seroepizootiological survey for selected viral infections | Ramanathan et al(2007)         |
+| Estrus behaviour                                          | Umapathy(2007)                 |
+| Role of personality on behaviour                          | Pastorino(2015), Spiezio(2015) |
+
+: *ex-situ* research on Asiatic lions
+
+::: footer
+Introduction
+:::
+
+::: notes
+-  Studies on captive asiatic lions have primarily focused on their breeding cycles.
+-  some studies from London zoo have addressed their welfare status in a limited manner.
+-  In fact there is limited literature available on the welfare status of lions. 
+-  There is a prominent research gap in the welfare status assessment of captive Asiatic lions housed in the conservation breeding programme.
+- Which I aim to address to some extent today.
+:::
+
+
+
+## Thesis objectives
+::: columns
+![](figures/offdsip.png){height="400" width="600"}
+![](figures/P1100006.png){height="400" width="650"}
+![](figures/image19.jpeg){height="400" width="600"}
+:::
+
+::: goal
+-   [Chapter 1]{style="color:#cc0000"}: What is the effect of visitor presence and enclosure complexity on the welfare of Asiatic lions?
+
+-   [Chapter 2]{style="color:#cc0000"}: Does the personality trait and rearing-history play a role in determining the welfare of Asiatic lions?
+
+-   [Chapter 3]{style="color:#cc0000"}: Can enrichment interventions improve welfare and encourage positive affective states in Asiatic lions?
+
+-   [Chapter 4]{style="color:#cc0000"}: Recommendations for betterment of husbandry practices of Asiatic lions in captivity.
+:::
+
+::: footer
+Introduction
+:::
+
+::: notes
+I aimed to understand the predominant factors affecting welfare status of captive Asiatic lions.
+- To achieve that goal I looked into the external factors like enclosure complexity and visitor presence.
+- I also explored the effect of inter-individual differences on differential welfare outcomes under similar housing conditions.
+- Finally I wanted to understand if welfare conditions could be improved using enrichment interventions.
+Now I will discuss each of my chapters in detail
+:::
+
+
+## Chapter 1: Effects of enclosure type and visitor presence on animal welfare
+
+:::{columns}
+![](figures/oldexhibit2.png){height="390"width="600"}
+![](figures/offdsip.png){height="390" width="650"}
+![](figures/zoosaf.JPG){height="390" width="600"}
+:::
+
+### Objectives
+::: goal
+-   Does the behavioural welfare indices of Asiatic lions vary based on enclosure complexity?
+-   Does the behavioural welfare indices and activity budget of Asiatic lions vary based on visitor presence?
+:::
+
+::: aside
+Goswami, S., Tyagi, P.C., Malik, P.K., Gupta, Brij. K.(2022). Effects of enclosure complexity and visitor presence on Asiatic lion welfare. Emerging Animal Species.(Under Review)
+:::
+
+::: notes
+My goals for this objective was to understand how enclosure complexity and visitor presence relate with  asiatic lion welfare.
+-   There is no debate about the fact that enclosure type, size and complexity are largely responsible for the welfare of captive animals.
+-   This has been proven across studies spanning several decades now.
+-   However very fes studies have looked into the effects of visitor presence and enclosure complexity together.
+-   Moreover, none of the exisiting studies have had strong sample sizes, which is a common hindrance to most zoo-based studies.
+:::
+
+::: footer
+Chapter 1
+:::
+
+## Subjects
+
+::: {columns}
+<img src="figures/Jesal.jpg" height="400px"width="600"/> 
+<img src="figures/lioness.JPG" height="400px"width="600"/> 
+<img src="figures/szg.png" height="400px" width="600"/>
+:::
+::: goal
+- Adult Asiatic lions (N=41).
+- Mean age 7.9 years.
+- 17 male, 24 female.
+- 23 pair-housed 18 group-housed.
+- On-display(N=6), Zoo-safari(N=10), Off-display(N =25).
+
+:::
+
+::: notes
+- I had access to 41 captive Asiatic lions of whom 6 were housed at on-display enclsores, 10 were at the zoo-safari and 25 were housed completely off-display with no visitor disturbance.
+:::
+
+::: footer
+Chapter 1
+:::
+
+## Study design
+
+
+![](figures/study-design.png){fig-align="center"}
+
+
+::: columns
+::: {.column width="30%"}
+### [On-display enclosure]{style="color:red"}
+
+-   Number of enclosures- 2
+-   Number of subjects- 6(3M:3F)
+-   Enclosure size- 100m^2^
+:::
+
+::: {.column width="30%"}
+### [Zoo-safari]{style="color:red"}
+
+-   Number of enclosures- 4
+-   Number of subjects- 10(4M:6F)
+-   Enclosure size- 1200m^2^
+:::
+
+::: {.column width="40%"}
+### [Off-display]{style="color:red"}
+
+-   Number of enclosures- 17
+-   Number of subjects- 25(10M:15F)
+-   Enclosure size- 1200m^2^ - 5600m^2^
+:::
+:::
+
+
+::: footer
+Chapter 1
+:::
+
+::: notes
+
+- There are three types of enclosures at Sakkarbaug zoo on-display, zoo-safari and off-dsiplay
+-  The on-display enclosures are small and exposed to a large visitor volume throughout the day except Wednesday when the zoo is closed.
+-  The zoo-safari  enclosures are situated at the foothills of girnar at the distal portion of the main zoo premise.
+-  A safari bus is allowed to move periodically through this area, wherein viistors can look at asiatic lions in large naturalistic enclosures without disembarking from the bus.
+- The thrid type of enclosures are found in the same area that constitute the conservation breeding programme for Asiatic lions. Visitors and outsiders are not allowed in this complex.
+:::
+## On-display enclosures {.h2}
+
+![](figures/ondisplay.JPG){width="1900"fig-align="center"}
+
+::: footer
+Chapter 1
+:::
+
+## Zoo-safari enclosure {.h2}
+
+![](figures/zoosaf.JPG){width="1900"fig-align="center"}
+
+::: footer
+Chapter 1
+:::
+
+## Off-display enclosure {.h2}
+
+![](figures/offdsip.png){width="1900"fig-align="center"}
+
+::: footer
+Chapter 1
+:::
+
+
+## Layout of the off-display and zoo-safari enclosures
+
+![](figures/enclosurelayout.png){fig-align="center"}
+
+::: footer
+Chapter 1
+:::
+
+
+## Methodology {background-image="figures/workplan.png" background-size="contain" fig-align="center"}
+
+<!-- ![](figures/workplan.png){width="1700" height="1000"} -->
+
+::: footer
+Chapter 1
+:::
+
+::: notes
+- I used enclosure comlexity scoring to understand the species-appropriateness of enclosures.
+- I used several behavioural welfare indices to understand the welfare status of asiatic lions.
+- Before commencing the data collection I conducted an ad-libitum study to create a  detailed ethogram for Asiatic lions.
+- I also corrected for observer bias before  commencing behaviour data collection.
+:::
+
+## Methods: Ethogram for Asiatic lion {.scrollable}
+
+::: columns
+::: {.column width="50%"}
+```{r, ethogram, echo = FALSE}
+library(tidyverse)
+library(kableExtra)
+etho <- tibble::tribble(
+  ~"Sl no", ~"Behaviour name", ~"Category", ~"Description",
+ " 1", "Sphinx", "Rest", "The animal sits like a sphinx",
+  "2", "Lying down", "Rest", "The animal lies on its side",
+  "3", "Belly up", "Rest",  " The animal resting in its back with legs pointing upwards",
+  "4", "Sit", "Rest", " The animal sits on its haunches",
+  "5", "Stand ", "Rest", " Animal standing and doing nothing else",
+  "6", "fixate", "Typical", "Looking at an object and staring at it with intent and reacts as soon as the object moves",
+  "7", "Eating ", "Typical", "Eating food material and ingesting the same",
+  "8", "Drink", "Typical", "Drinking water",
+  "9", " Clearing hide", "Typical", "Clearing the fur from the hide of food item",
+ "10", "Chew", "Typical", "Chewing Bones",
+  "11", " Walk", "Typical", "Animal walking straight with head at slight upward angle to the rest of the body",
+  "12", "Stalk", "Typical", "Animal crouching or walking with slow calculated steps, head at a lower angle than the body. Note down the subject stalked",
+  "13", "Charge", "Typical", "Animal shows a sudden burst in pace and runs upto a short distance to a certain object, individual, with tail swaying above the body line, note down the subject",
+  "14", "Chase", "Typical", " Animal chasing object, another animal in a fast paced manner, here also note down the subject chased",
+  "15", "Solicit Play", "Typical", "Animal runs or walks up to another animal and tries to play by rolling in front of them or pawing their",
+  "16", "Nuzzling", "Typical", "Rub nose and head with a conspecific",
+  "17" , "Play", "Typical", "Animal showing different types of playful behaviour",
+  "18", "Mount", "Typical", "Animal mounting a conspecific",
+  "19", " Neckbite", "Typical", " Male bites the scruff of the female while copulating",
+  "20", " Roll over", "Typical", " Female rolls on the ground, an act preceded by copulation",
+  "21", "Yawn", "Typical", " Animal yawns",
+  "22", "Scentmark", "Typical", " 1. Scentmark a tree or a vertical object  with perianal glands 2. scent mark on ground and then scratch with hind legs.",
+ "23", "Rubbing mane", "Typical", "Animal rubs mane or body against a scent-marked area or against a conspecific",
+ "24", "Sniff", "Typical", " Animal sniffing object, conspecific, air ",
+ "25", "Flehmen", "Typical", "Wrinkled face, upper lip curled in a grimace",
+ "26", "Cough", "Typical", " Animal coughs",
+ "27", "Aggression", "Typical", " Animal shows aggression towards enclosure mates, keepers, and other lions visible through enclosure barriers, charges up a short distance growls, with tail swaying from side to side. The recipient if in physical contact with the aggressor either fights back or lies on its back and bares teeth. Usual injuries to haunches, face, shoulders in recipients.",
+ "28", "Dig", " Typical", "Trying to dig ground, leaves, enclosure substrate",
+ "29", "Allogrooming", "Typical", "Animal licking the head and body of conspecifics",
+  "30", "Autogrooming", "Typical", " Animal licking its paws and geinitals",
+  "31", " paw", "Typical", " Animal inspecting an object or conspecific with jabs of  the front paw",
+  "32", "Scratch", "Typical", " Animal scratching post or tree",
+  "33", "Bite", " Typical", "Animal mouthing an object",
+  "34", "Chew", "Typical", " Animal intently and purposefully chewing a twig or a foreign object",
+  "35", "Suffocate", "Typical", "Animal grabs any long object like a branch or  enrichment device and holds it down with the paws and bites on it as if to suffocate it.",
+  "36", "Neckbite", "Typical", " Animal Playfully bites the neck of the conspecific and tries to bring them down",
+  "37", "Paw-swipe", "Typical", " Animal playfully swipes the hind leg of the conspecific",
+  "38", "Initiate-call", "Typical", " Animal starts to vocalize",
+  "39", "Response_vocalization", "Typical", "Animal responds to the vocalization of another conspecific",
+  "40", " Growl", "Typical", " Animal makes a low rumbling noise lasting for a short duration",
+  "41", "Aggressive growl", "Typical", " Loud growl followed by an immediate charge",
+  "42", "Copulation growl", "Typical", " Vocalization made by males and females while copulating",
+  "43", " Pacing", " ARB", " Animal walks up and down a fixed path occasionally raising its head up and fixed  points",
+  "44", " Rubbing nose", "ARB", " Animal rubs its nose against a wall or a chainlink barrier that leaves a distinct black mark on the snout",
+  "45", " Swaying", " ARB", " Animal stands facing a wall or the barrier and shifts its weight from one leg to the other",
+  "46", " Body rub", " ARB", " Animal rubs body at the same area that leaves a mark on the wall or enclosure barrier. Often results in hair loss in certain parts of the body.")
+
+etho |>
+  kbl( booktabs = T, longtable = T, format = "html") |>
+  kable_styling(stripe_color="#e9ecef", position = "center", font_size = 20, fixed_thead= TRUE) |>
+  landscape()
+```
+:::
+
+::: {.column width="50%"}
+::: goal
+-   Behaviours classified as [Rest]{style="color:blue"}, [Typical]{style="color:green"} and [ARB]{style="color:red"}.
+-   Observer bias corrected prior to data collection.
+-   Instantaneous scan samples at 1 minute intervals.
+-   Direct observation and video recordings used
+-   130 hours of behaviour data collected from each subject(at least 3 hours per day).
+-   Total 383,132 scans of behaviour data.
+:::
+:::
+:::
+
+::: footer
+Chapter 1
+:::
+
+::: notes
+-  I created the most detailed ethogram for captive Asiatic lions.
+-  I used existing literature as the base and added new behaviours as I encountered them.
+-  Behaviours were categorises as Rest, typical and stereotype or ARB.
+-  I used instantaneous scan samples at 1 minute intervals to collect data.
+-  I collected  130 hours of behaviour data per subjject. from 7am to 7pm.
+
+:::
+
+
+## Methods: Behavioural welfare indices
+
+::: columns
+::: {.column width="50%"}
+![](figures/peerj1.png){fig-align="left"}
+:::
+
+::: {.column width="50%"}
+
+-   [Activity budget]{style="color:red"}
+
+-   [Behaviour diversity]{style="color:red"} $$
+    SWI = \sum {p_{i}*\log p_{i}}
+    $$
+
+-   [Enclosure usage]{style="color:red"} $$
+    SPI = \frac {\sum |f_{o}-f_{e}|} {2(N-f_{emin})}
+    $$
+
+-   [Aberrant repetitive behaviours]{style="color:red"} <br> Percentage of scans spent performing stereotypic behaviours.
+
+-   Calculations done separately for ["visitor"]{style="color:red"}(N= 70 days) and ["non-visitor"]{style="color:green"} days(N = 14 days).
+:::
+:::
+
+::: footer
+Chapter 1
+:::
+
+::: notes
+
+-   To collect the behavioral data, I divided the enclosures into ten equal zones
+-   I used instantaneous scans at 1-minute intervals for one hour followed by a 15-minute rest to reduce observer fatigue.\*
+-   observations were made in six-hour blocks between 7-11 and 1300-1900 hours
+-   In total, I collected 127 hours of scan observation data per subject
+-   During each scan I recorded the behavioral state of the animal and the enclosure zone it was using.\*
+-   I counted the scans in which animals were performing species-typical behaviors and aberrant repetitive behaviors and also measured the total amount of time they spent on different enclosure zones.
+- I calculated the species-typical behaviour diversity using the shanon weiner index  formula.
+- I calculate the homogeneity of enclosure usage with SPI formula developed by Amy Plowman. A score close to 1 denote enclosure zone bias, while a score less than 0.5 means homogenous enclosure use.
+- Calculations were done separately for 70 visitor and 14 non-visitor days.
+
+:::
+
+
+## Methods: Enclosure complexity scoring {.scrollable}
+
+::: columns
+::: {.column width="50%"}
+```{r}
+library(kableExtra)
+encl<- tibble::tribble(~"Sl no", ~"Attributes", ~"Description",
+                "1", "Enclosure barrier safety", "Does the enclosure barrier pose a safety hazard to the animals? Are there exposed rusted metals used in the enclosure barrier that can injure or harm the animals?",
+                "2", "Enclosure barrier type", "Is the enclosure barrier type safe and limit chances of human animal contact?",
+                "3", " Enclosure visibility", "Do keepers and visitors have unhindered visibility to all parts of the enclosure.",
+                "4",  "Area for animal actvity", "Does the enclosure provide enough space for the animal to exhibit species-typical behaviour patterns?",
+                "5", "Substrate type", "Does the enclosure substrate provide natural materials that promote natural behaviours? ",
+                "6", "Area for animal activity", "Does the enclosure provide enough space for the animal to exhibit species-typical behaviour patterns?",
+                "7", "Enclosure topography", " Does the enclosure have topographical features, viz., caves and vantage points that allow animals to exhibit natural behaviour patterns?",
+                "8", "Shelter", "Does the enclosure provide shelter to the animals from inclement weather?",
+                "9", "Aspect", "Does the enclosure provide animals equitable opportunities to thermoregulate?",
+                "10", "Withdrawal spaces", "Are there sufficient withdrawal zones within the enclosure to counter visitor disturbance in all animals?",
+                "11", "Vegetation", "Does the enclosure have adequate species-appropriate vegetation that can promote species-typical behaviours in housed animals?",
+                "12", "Enrichment", "Does the enclosure provide species-appropriate enrichment for all animals with the aim of encouraging species-typical behaviours?",
+                "13", "Furniture", "Does the enclosure provide furniture such as vantage points, water pool, that appropriate for the species and provide opportunity for natural behaviour repertoire  ",
+                "14", "Inter-individual distance", "Does the enclosure provide enough space for all animals to coexist?",
+                "15", "Social grouping", "Is the social grouping appropriate or unnatural due to iso-sexual pairing of unrelated individuals?",
+                "16", "View beyond enclosure ", " Do the animals have the ability to view beyond the enclosure through vantage points?",
+                "17", " Feed availability", " Is feed provided consistently and periodically to all subjects based on their body weight and biological requirement?",
+                "18", "Feeding practice", "Does the husbandry practices incorporate species appropriate feeding practices that encourage natural behaviour?",
+                "19", "Availability of drinking water", "Does the enclosure provide animals with safe clean drinking water throughout the day?",
+                "20", " Feed delivery mechanism", " Is the food provisioned in a manner that encourages species-typical behaviour? ",
+                "21", " Retiring area space", " Does the animal have sufficient space to move around in the retiring area",
+                "22", "Retiring area ventilation", "Does the Retiring area provide natural ventillation to the species",
+                "23", "Retiring area illumination", " Is the retiring area deisgned to receive natural illumination at all times of the day?",
+                "24", "Retiring area enrichment", " Does the retiring area provide animals with enrichment devices to promote natural behaviours",
+                "25", "Retiring area social grouping", " Does the retiring area provide animals a chance for social interactions"
+                ) 
+
+encl %>% 
+  kbl(., booktabs = T, longtable = T, caption = "Complexity rating rubric for Asiatic lion enclosures", caption.short = "Enclosure rating") %>% 
+  kable_styling(latex_options = c("striped", "scaledown", "repeat_header"),
+                font_size  = 20) %>% 
+  pack_rows("Enclosure features", 1,13) %>% 
+  pack_rows("Social features", 14, 16) %>% 
+  pack_rows(" Feeding practices", 17, 20) %>% 
+  pack_rows("Retiring area", 21, 25) #%>% 
+  # column_spec(3, width = "4cm") %>% 
+  # column_spec(1, width = "2cm")
+```
+:::
+
+::: {.column width="50%"}
+::: goal
+-   41 point rubric for enclosure complexity created.
+-   I looked at several features such as enclosure space, vegetation, social features, feeding practices and retiring area features.
+-   Scoring on a scale of 1-5( 5 being most species appropriate).
+-   Enclosures scored separately and mean calculated for each enclosure type.
+:::
+:::
+:::
+
+::: footer
+Chapter 1
+:::
+
+
+::: notes
+-   41 point rubric for enclosure complexity created.
+-   We looked at several features such as enclosure space, vegetation, social features, feeding practices and retiring area features.
+-   Scoring on a scale of 1-5( 5 being most species appropriate).
+-   Enclosures scored separately and mean calculated for each enclosure type.
+:::
+
+## Results: Enclosure complexity scores
+
+::: goal
+- On-display enclosures were small, sterile and unfit for housing Asiatic lions.
+- On-display enclosures lacked vegetation features.
+- On-display enclosures had insufficient safety features.
+
+:::
+
+```{r}
+#| echo: false
+#| message: false
+#| out-width: 1600px
+#| out-height: 700px
+#| fig-align: center
+library(here)
+# getwd()
+encla <- readxl::read_xlsx(here("data","enclosurea.xlsx"), sheet = "Sheet10")
+# dim(encla)
+library(dplyr)
+#glimpse(encl)
+library(ggtext)
+library(ggplot2)
+library(tidyverse)
+# View(encla)
+p<- encla |>  pivot_longer(cols = 3:22, names_to = "enclosure", values_to = "score") |> 
+  mutate(type = case_when( enclosure %in% c("A1", "A10", "A11", "A4", "A5", "A6", "A7", "A8", "B1", "B6", "A14", "A15") ~ "Off-display",
+                                 enclosure %in% c("barred1", "barred2")~ "On-display", 
+                                 TRUE ~ "Zoo-safari" ),score = as.numeric(score)) 
+
+
+#p$score <- as.numeric(p$score)
+ p |> dplyr::group_by(Parameters, type) |>
+   dplyr::summarise(scoresm = mean(score), scoresd = sd(score), scoresm = round(scoresm,2)) |> 
+   ggplot(aes(x = Parameters, y = scoresm, label = scoresm)) + 
+   geom_col( aes(fill= type),position = "dodge") + 
+   facet_grid(rows = vars(type)) +
+   ylab("Complexity score mean") +
+   xlab("Enclosure complexity parameters") +
+   labs(fill = "Enclosure types") + 
+   theme_bw()+
+   theme(legend.position = "bottom",
+        strip.background = element_rect(fill = "#ffffff"),text=element_text(size=18)) + 
+   geom_label()+
+   geom_errorbar(aes(ymin = scoresm -scoresd, ymax = scoresm +scoresd), width = 0.5)
+   
+# #View(summaryenclosure)
+# p |> dplyr::group_by(Parameters, type) |> 
+#   dplyr::summarise(scoresm = mean(score)) |> 
+#   ggplot(aes(x = scoresm, fill = type)) + 
+#   labs(title = " Complexity score of *Asiatic lion* enclosures",
+#        x = "Enclosure Complexity scores <br> 5 is species-appropriate",
+#        y = "Frequency of scores")+
+#   geom_bar(position = "dodge", width = 0.5) + 
+#   facet_wrap(~Parameters)+
+#   theme(legend.position = "bottom",plot.title = element_markdown(hjust = 0.5),axis.title.x = element_markdown())  + 
+#   scale_y_continuous(n.breaks= 10) +
+#   scale_x_binned(n.breaks = 5, limits = c(1,5))
+# names(p)
+# glimpse(p)
+# plotencl<- p |> 
+#   group_by(Parameters, type) |> 
+#   dplyr::summarise(scoresm = mean(score)) |> 
+#   ggplot(aes(x = scoresm, fill = type)) + 
+#   labs(title = " Complexity score of *Asiatic lion* enclosures",
+#        x = "Rating scale (1-5) <br> 5 is species-appropriate",
+#        y = "Count of scores")+
+#   geom_bar(position = "dodge", color = "black", width = 0.5) + 
+#   facet_wrap(~Parameters)+
+#   theme(legend.position = "bottom",plot.title = element_markdown(hjust = 0.5),axis.title.x = element_markdown()) 
+# plotencl |> ggsave(filename = "figure/enclrating.png",device = "png", width= 20, height = 15, units = "cm", dpi = 600, limitsize = TRUE)
+
+```
+
+::: footer
+Chapter 1
+:::
+
+::: notes
+-  On display enclosures scored poorly on all aspects of enclosure design  compared to off-display and zoo-safari enclosures. The only exception being feeding practices, which was similar for all three enclosures.
+-  On-display enclosures lacked vegetation features, space and wwere deemed unsafe for keepers, animals and visitors.
+-  Therefore in terms of complexity there were two types of enclosures and  in terms of visitor presence we had three enclosure types.
+:::
+
+## Results: Activity budget
+
+::: goal
+-   Lions housed in on-display enclosures showed more ARB and rested less during visitor presence days.
+-   On no-visitor days on-display animals  performed slightly less stereotypy.
+-  There was slight increase in arb level of lions on non-visitor days at the zoo-safari.
+:::
+
+```{r}
+#| echo: false
+#| message: false
+#| out-width: 1600px
+#| out-height: 700px
+#| fig-align: center
+library(readxl)
+act <- read_xlsx("data/comp.xlsx", sheet = "Sheet2")
+#glimpse(act)
+act |> select(c(ARB, Typical, Rest, enclosure, visitor)) |>
+  pivot_longer(cols=c(ARB, Typical, Rest), names_to = "behaviour", values_to = "scanperc") |>
+  group_by(enclosure, visitor, behaviour) |>
+  summarise(meanscan = mean(scanperc)) |>
+  ggplot(aes(x = behaviour, y = meanscan)) + geom_col(aes(fill = visitor),position = "dodge") + facet_wrap(~enclosure)+
+  ylab(label= "Percentage of scans (N =383,000)")+
+  xlab(label = "Behaviour categories") +
+  scale_y_continuous(n.breaks = 20)+ theme_minimal()+
+  theme_bw()+
+    theme(axis.title.x = element_markdown(size =10),
+        text = element_text(size = 18),
+        plot.title = element_markdown(hjust = 0.5),
+        legend.position = "bottom",
+        strip.background = element_rect(fill = "#ffffff")) +
+   scale_fill_manual(values=c("#CC6666", "#9999CC", "#66CC99"))
+# ggsave("figures/fig2.7.png", width = 1800, height = 1400, units = "px", dpi= 300)
+#knitr::include_graphics("figures/fig2.7.png")
+#boxplot(ARB ~ enclosure + visitor, data = act)
+#
+```
+::: footer
+Chapter 1
+:::
+
+::: notes
+-   Lions housed in on-display enclosures showed more ARB and rested less during visitor presence days.
+-   On no-visitor days on-display animals  performed slightly less stereotypy.
+-  There was slight increase in arb level of lions on non-visitor days at the zoo-safari.
+-  both off-display enclosures showed similar activity budgets.   
+:::
+
+## Results: Hourly activity budget
+
+::: goal
+-   ARB levels of lions housed on-display remained constant throughout the day after an early morning peak.
+-   Lions housed on-display rested less and showed less typical behaviours.
+- ARB levels for off-display animals peaked in the morning and in the evening.
+:::
+
+```{r}
+#| fig-align: center
+#| message: false
+#| out-width: 1600px
+#| out-height: 700px
+
+
+budget <- read_csv("data/budgetall1.csv")
+budgetnew<- budget |>  mutate(enclosure = case_when(animal %in% c("Amal", "Amiya", "Radha", "Rani", "Taukir",  "A1" , "Aftab", "girm", "Maytri", "dharicub","Gina") ~ "Off-display",
+                                                    animal %in% c("jesal", "Veer", "Dheer") ~ "Zoo-safari",
+                                                    TRUE ~ enclosure))
+offdisp<- budgetnew |> filter(enclosure == "On-display", hour %in%(7:12))
+#sur::percent.table(offdisp$behclass)
+# off<- budgetnew |> filter(enclosure == "Off-display") |> select(animal)
+# ## modified off-display
+# offdisp1<-budgetnew |> filter(enclosure== "Off-display"& hour %in%(7:20)) 
+# 
+# unique(offdisp$animal)
+# offdisp1<- offdisp1 |> group_by(hour,behclass) |> summarise(count = n()) |> mutate(perc = (count/sum(count))*100)
+# offdisp1|> ggplot(aes(x = hour, y = perc)) + geom_col(aes(fill= behclass), position = "dodge")
+# 
+# budgetnew |> group_by(enclosure, behclass) |> summarise(count= n()) |> mutate(perc = (count/sum(count))*100)
+budgetnew |>
+  filter(hour %in% c(7:19))|>
+  mutate(behclass = if_else(hour %in% c(12:14) & enclosure == "On-display","rest", behclass)) |> 
+  mutate( hourblock = case_when(hour %in% c(7:10) ~ "7-10",
+                                 hour %in% c(10:13) ~ "10-13",
+                                 hour %in% c(13:16) ~ "13-16",
+                                 hour %in% c(16:19) ~ "16-19")) |> 
+  group_by(hourblock, enclosure, behclass) |>
+  summarise(count = n()) |>
+  mutate(perc = (count/sum(count))*100) |>
+  ggplot(aes(x = factor(hourblock, level = c("7-10", "10-13", "13-16", "16-19")), y = perc)) +
+  geom_col(aes(fill= behclass), position ="dodge") +
+  facet_grid(rows = vars(enclosure))+
+  ylab("Percentage of scans") + 
+  xlab("Observation period 7am to 7pm")+
+  theme_classic()+
+  theme(legend.position = "bottom", text=element_text(size=18))+
+  #scale_x_discrete(position = c())
+  #scale_fill_discrete(name = "legend")# both scale_fill_discrete and labs will work to change the legend titiel
+  labs(fill = "Behaviour class")
+```
+
+::: footer
+Chapter 1
+:::
+::: notes
+-   ARB levels of lions housed on-display remained constant throughout the day after an early morning peak.
+-   Lions housed on-display rested less and showed less typical behaviours.
+- ARB levels for off-display animals peaked in the morning and in the evening.
+:::
+
+## Results: Aberrant repetitive behaviours (ARB)
+
+::: goal
+-   No effect of visitor presence on ARB levels.
+-   Significant differences in ARB levels between enclosure types.
+:::
+
+```{r}
+#| fig-align: center
+#| out-width: 1600px
+#| out-height: 700px
+comp <- readxl::read_xlsx("data/comp.xlsx", sheet = "Sheet2")
+library(ggsignif)
+library(ggpubr)
+ggplot(comp,aes(x = enclosure, y =ARB)) +
+  labs(y =" ARB (% of scans)",
+       x = "Enclosure types <br>based on complexity") +
+  geom_signif(comparisons = list(c("Off-display", "On-display"),
+                                 c("Off-display", "Zoo-safari")),# This allows us to specify the comparisons
+              y_position = c(49,52))+
+  scale_x_discrete("Enclosure types")+
+  geom_boxplot(aes(fill = visitor)) +
+  stat_compare_means()+
+  theme_bw()+
+  theme(axis.title.x = element_markdown(), 
+        plot.title = element_markdown(hjust = 0.5),
+        legend.position = "bottom",
+        text= element_text(size=18)) +
+  #geom_jitter()+
+   scale_fill_manual(values=c("#CC6666", "#9999CC", "#66CC99")) + 
+  labs(fill = "Visitor levels")
+```
+
+::: footer
+Chapter 1
+:::
+
+::: notes
+-   No effect of visitor presence on ARB levels.
+-   Significant differences in ARB levels between enclosure types.
+:::
+
+## Results: Behaviour diversity
+
+::: goal
+-   Behaviour diversity of zoo safari and off-display enclosures higher than on-display enclosures.
+-   No significant effect of visitor presence on behaviour diversity.
+:::
+
+```{r}
+#| fig-align: center
+#| message: false
+#| out-width: 1600px
+#| out-height: 700px
+
+
+ggplot(comp,aes(x = enclosure, y =diversity)) +
+  labs(y =" Behaviour diversity",
+       x = "Enclosure types <br>based on complexity") +
+  geom_signif(comparisons = list(c("Off-display", "On-display"),
+                                 c("Off-display", "Zoo-safari")),# This allows us to specify the comparisons
+              y_position = c(1.7,1.8))+
+  scale_x_discrete("Enclosure types")+
+  geom_boxplot(aes(fill = visitor)) +
+  stat_compare_means()+
+  theme_bw()+
+  theme(axis.title.x = element_markdown(), 
+        plot.title = element_markdown(hjust = 0.5),
+        legend.position = "bottom",
+        text= element_text(size=18)) +
+  #geom_jitter()+
+   scale_fill_manual(values=c("#CC6666", "#9999CC", "#66CC99")) + 
+  labs(fill = "Visitor levels")
+```
+
+::: footer
+Chapter 1
+:::
+
+::: notes
+-   Behaviour diversity of zoo safari and off-display enclosures higher than on-display enclosures.
+-   No significant effect of visitor presence on behaviour diversity.
+-  We also found a large variation in the welfare measures of off-display lions.
+:::
+
+## Results: Enclosure usage
+
+::: goal
+-   Enclosure usage became slightly more homogenous at on-display enclosures on "no-visitor" days.
+-   Significant differences in enclosure usage between enclosure types.
+
+:::
+
+```{r}
+#| fig-align: center
+#| out-width: 1600px
+#| out-height: 700px
+ggplot(comp,aes(x = enclosure, y =usage)) +
+  labs(y =" Enclosure usage (SPI)",
+       x = "Enclosure types ") +
+  geom_signif(comparisons = list(c("Off-display", "On-display"),
+                                 c("Off-display", "Zoo-safari")),# This allows us to specify the comparisons
+              y_position = c(1.1,1.2))+
+  scale_x_discrete("Enclosure types <br> based on complexity")+
+  geom_boxplot(aes(fill = visitor)) +
+  stat_compare_means()+
+  theme_bw()+
+  theme(axis.title.x = element_markdown(), 
+        plot.title = element_markdown(hjust = 0.5),
+        legend.position = "bottom",
+        text=element_text(size=18)) +
+  #geom_jitter()+
+   scale_fill_manual(values=c("#CC6666", "#9999CC", "#66CC99"))
+```
+
+::: footer
+Chapter 1
+:::
+
+::: notes
+-   Enclosure usage became slightly  more homogenous at on-display enclosures on "no-visitor" days.
+-   However due to poor enclosure complexity  it was never at the same level as  off-display enclosures.
+-   Significant differences in enclosure usage between enclosure types.
+- No tangible visitor effect.
+-  We also noticed a large variation in the enclosure usage of off-display animals.
+:::
+
+## Summary
+
+::: goal
+-   Lions housed at off-display and zoo-safari areas had significantly higher levels of behaviour diversity compared to on-display animals.
+-   On-display enclosures are poorly-equipped to meet the welfare requirement of Asiatic lions.
+
+-   Some of the lions housed at high-complexity off-display enclosures had behaviour diversity levels similar to the on-display animals.
+
+
+-   I found no discernible effect of visitor presence on behaviour diversity, enclosure usage or ARB levels.
+
+-   If an enclosure is large and complex it can offset the effects of visitor presence.
+
+-   Lack of enclosure complexity can exacerbate the effects of visitor presence.
+
+-  The wide variation in welfare outcomes in off-display enclosure lions require further investigation.
+:::
+::: notes
+
+-   These findings highlight several glaring issues pertaining to the welfare of captive felids at Indian zoos. Particularly, the gross welfare inequity within the same zoological institution.
+
+ -  The lack of enrichment protocol and species-appropriate furnishing at most enclosures is a significant issue that is frequently overlooked in zoos.
+-  Lions housed at the off-display and zoo-safari areas had significantly higher levels of behaviour diversity  and enclosure usage.
+ 
+-  The lions at the off-display enclosures overall showed better welfare outcomes than those at the on-display areas. However the wide variation in the welfare outcomes of lions housed at  the off-display enclosure suggests  that there are other factors which might be affecting the welfare of these animals other than the external ones.
+ 
+-  Therefore we must look at the internal factors or the inter-individual variations in the subject pool to understand the reasons for differential welfare outcomes under similar housing conditions.
+:::
+
+::: footer
+Chapter 1
+:::
+
+## Chapter 2: Effects of personality and rearing-history on the welfare of Asiatic lions {.h2}
+::: columns
+
+
+![](figures/P1060452.JPG){width="900" height="450"}
+![](figures/P1100006.png){width="900" height="450"}
+:::
+
+### Objectives
+
+::: goal
+
+- How differences in bold/shy personality traits, rearing history, sex, and social
+grouping are associated with variations in behavioural welfare outcomes in a
+group of captive Asiatic lions?
+
+- How are the behavioural and physiological welfare indices  interlinked?
+:::
+
+
+::: aside
+Goswami, S., Tyagi, P.C., Malik, P.K., Pandit, SJ, Kadivar, R.F., Fitzpatrick, M., Mondol, S. 2020. Effects of personality and rearing-history on the welfare of captive Asiatic lions (Panthera leo persica) PeerJ 8:e8425 <https://doi.org/10.7717/peerj.8425>
+:::
+
+::: footer
+Chapter 2
+:::
+
+
+::: notes
+-  To answer the  welfare variation in the lions at the off-display enclosures I looked at internal factors affecting welfare.
+-  I asked if personality, sex, grouping type and rearing history were associated with changes in welfare outcomes.
+- I also wanted to understand how the behavioural and physiological welfare indices were associated with each other.
+-  We published this study in 2020.
+
+:::
+
+
+
+## Study design
+
+::::{.columns}
+:::{.column width="70%"}
+![](figures/chapter3d.png){fig-align="center"}
+:::
+:::{.column width="30%"}
+::: goal
+-   15 enclosures all off-display, large and naturalistic in design.
+-   N = 35(14:21).
+-   Rescued = 19 (11:8).
+-   Captive-born = 16(3:13).
+-   Mean-age= 7.6 years (SD = 3.9 years).
+-   Pair-housed = 17.
+-   Group-housed = 18.
+:::
+:::
+::::
+::: footer
+Chapter 2
+:::
+
+:::notes
+-   Study subjects were 35 adult Asiatic lions housed across 15 large naturalistic enclosures.
+-   19 of these individuals were rescued from the wild either as sub-adults or adults
+-   The rest were born in captivity.
+-   At the time of the study the average age of the subjects ranged between 4-10 years.
+:::
+## Methodology
+
+::: r-stretch
+![](figures/Chapter3.png){width="1900" height="1000" fig-align="center"}
+:::
+::: footer
+Chapter 2
+:::
+
+
+
+
+## Methods: Personality assessment
+
+::: columns
+::: {.column width="60%"}
+<!-- ![](figures/asiaticlionnovel.mp4) -->
+<video data-autoplay src="figures/asiaticlionnovel.mp4" ></video>
+:::
+
+::: {.column width="40%"}
+::: goal
+-   Bold and shy continuum indicator of cognitive ability.
+-   Keeper rating bold or shy score of 9-1 ( 9 being very bold and 1 very shy) on 15 personality attributes.
+-   Latency to a 10 minute exposure to non-food novel object.
+-   Cronbach's alpha or agreeability between rating and coding.
+-   Subjects tested alone.
+:::
+:::
+:::
+
+-   Personality: 21 bold, 14 shy.
+-   Rearing history: 16 captive-born, 19 wild-rescued.
+-   Sex: 14 males, 21 females.
+-   Social grouping: 18 group-housed, 17 pair-housed
+
+::: footer
+Chapter 2
+:::
+
+::: notes
+ I already knew about the rearing history of the subjects.
+-  To categorize subjects based on boldness or shyness, I took a two-pronged approach
+-  first, I asked keepers with more than three years of experience to rate subjects on a scale of 1-9 on 15 personality attributes.
+-  Then I introduced each subject separately to non-food novel objects and recorded their reaction
+-   Independent observers recorded the latency times to react to novel objects and the type of behavior ( playful, fearful, curious) performed by the animal.
+-   I created our own list of bold and shy animals and compared the same with keepers.
+-   I only included individuals whose personality traits were agreed upon by keepers and observers. 
+:::
+
+## Methods: Corticosterone metabolite extraction {style="text-align:center;"}
+
+![Workflow for hormone metabolite extraction](figures/workflow.png)
+
+::: footer
+Chapter 2
+:::
+:::notes
+
+-  I collected two faecal samples per subject and  Preserved the entire sample in a freezer before they were lyophilized and pulverized for the next step.
+-  after thoroughly mixing the dried fecal powder we extracted hormone we pulse vorted o.1 gm of fecal pwder in 15ml of 70% ethanol followed by centrifugation at 2200rpm for 20 minutes.
+- the hormone extracts were stored at -20degrees in cryochill vials.
+-  Shiv Patel and I used arbor assay corticosterone kit for the ELISA assays to measure faecal corticosterone metabolites  and  pooled the mean corticosterone FGM means for all animals within our subject groups to calculate test statistics.
+:::
+
+## Methods: Corticosterone validation
+
+![](figures/cortaccuracy.png){style="align:center;"}
+
+::: footer
+Chapter 2
+:::
+::: notes
+ We tested for prallelism and accuracy to validate the corticosterone assay.
+-  For parallelism we pooled extracts from a random combination of samples to find optimal dilutions for final assays. 
+-  We plotted relative dose against the standard and a parallel slope indicates similar immunoreactivity to the standard solution.
+- For accuracy test we spiked corticosterone standards with different dilutions of the same faecal concentrate solution. and plotted the results using observed and expected concentrations to ensure that faecal contaminants did not interefere with the results. 
+-  to ensure reliability, We also calculated intra and inter assay coefficients of variation using repeated measures of same pooled extracts .
+ 
+:::
+
+
+## Results: Comparison of welfare measures 
+:::goal
+- No difference in welfare measures based on sex, and social grouping.
+- Welfare measures primarily vary based on personality-trait and rearing-history.
+:::
+
+![](figures/compvar.png){fig-align="center" height="700"}
+```{r}
+#| eval: false
+final<- readRDS("data/comp.RDS")
+final<- final |> mutate(sex = case_when(sex == "0" ~ "Female",
+                                sex == "1" ~ "Male"),
+                lifehistory = case_when (lifehistory == "0" ~ "Captive",
+                                         lifehistory == "1" ~ "Wild"),
+                personality = case_when (personality == "1" ~ "Bold",
+                                         personality == "0" ~ "Shy"),
+                grouping = case_when(grouping == "pair" ~ "Pair",
+                                      grouping == "group" ~ "Group")
+                )
+final<- final |> mutate(sex = as.factor(sex))
+finallong<- final |> pivot_longer(cols = c(lifehistory, personality, sex, grouping), names_to = "grups", values_to = "welfare") |> 
+  mutate(ARB = aberrant_repetitive_behaviour_perecentage, BD = behaviour_diversity,
+                    Enclosure_usage = enclosure_usage, FGM = precort, Latency = latency_in_seconds)
+finallong<- finallong |>  pivot_longer(cols = c(2,3,4,5,8), names_to = "indices" )
+# finallong <- mutate(ARB = aberrant_repetitive_behaviour_perecentage, BD = Behaviour_diversity,
+#                     Enclosure_usage = enclosure_usage, FGM = precort, Latency = latency_in_seconds)
+finallong |> 
+  mutate(indices = case_when(indices == "enclosure_usage" ~ "SPI",
+                           indices == "aberrant_repetitive_behaviour_perecentage" ~ "ARB",
+                           indices == "behaviour_diversity" ~ "BD",
+                           indices == "precort" ~ "FGM",
+                           indices == "latency_in_seconds" ~ "Latency")) |> 
+  ggplot(aes(x = welfare, y = value)) + geom_boxplot() + 
+  geom_violin(alpha = 0.1)+ 
+  #geom_sino()+
+  facet_grid(rows = vars(indices), scales = "free_y") + scale_x_discrete(limits = c("Bold", "Shy", "Captive", "Wild", "Male","Female", "Pair", "Group")) +
+  ylab("Values") +
+  xlab(" Welfare Index") + theme_bw() + theme(text= element_text(size=18))
+```
+
+::: footer
+Chapter 2
+:::
+
+::: notes
+-  I found that behavioural and physiological welfare measures  differed primarily between personality traits and  rearing history.
+-  Sex, and Social grouping had no impact on the welfare variations.
+:::
+
+## Results: Latency to novel objects {.h2}
+
+::: goal
+Latency levels were significanly lower in bold subjects compared to shy subjects hence corroborating the keeper ratings.
+:::
+
+```{r}
+#| fig-align: "center"
+#| out-width: 1600px
+#| out-height: 700px
+
+library(ggstatsplot)
+raw<- readxl::read_xlsx("data/raw.xlsx", sheet = "peerj submit")
+raw<- raw |> janitor::clean_names() |>
+  mutate(name = tolower(name),
+         personality = case_when( personality == 0 ~ "Shy",
+                                  personality == 1 ~ "Bold"),
+         lifehistory = case_when (lifehistory == 0 ~ "captive",
+                                  lifehistory == 1 ~ "wild")) |>
+  unite("history_personality", c("personality", "lifehistory"))
+ggbetweenstats(raw, x = history_personality, y = latency_in_seconds, xlab = "Rearing history and personality trait", ylab = " Latency in seconds", pairwise.display = "significant", results.subtitle = FALSE, centrality.type = "nonparametric")+
+  theme(text = element_text(size = 18))
+```
+::: footer
+Chapter 2
+:::
+::: notes
+-  Latency scores validated the keeper ratings and our classification of subjects on the bold-shy continuum.
+-  We also found that Most wild-rescued animals were categorized as shy while most captive animals were categorized as bold.
+- We can speculate that this is probably something to do with the fact that the captive-born animals are accustomed to the captive environment and are not neophobic to humn introduced devices inside the enclsoures.
+- The two largest groups Bold captive and shy wild animals differed significantly on the latency scores.
+
+:::
+
+
+## Results: Aberrant repetitive behaviours (ARB) {.h2}
+
+::: goal
+ARB levels differed significantly across bold and shy lions.
+:::
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: 1600px
+#| out-height: 700px
+library(dplyr)
+# attribute.label<- c(
+#   "aberrant_repetitive_behaviour_perecentage" = "ARB",
+#   "behaviour_diversity" = "Behaviour diversity",
+#   "enclosure_usage"= "Enclosure usage"
+# )
+# raw |> 
+#   pivot_longer(cols = c(4,5,6,7,9), values_to = "values", names_to = "attributes") |> 
+#   mutate(persrear = case_when( personality == 1 & lifehistory == 1 ~ "wildbold",
+#                                personality == 0 & lifehistory == 1 ~ "wildshy",
+#                                personality == 1 & lifehistory == 0 ~ "captivebold",
+#                                personality == 0 & lifehistory == 0 ~ "captiveshy")) |> 
+#   pivot_longer(cols = c(2,3), values_to = "traits", names_to = "ind") |> 
+#   filter(attributes == "aberrant_repetitive_behaviour_perecentage") |> 
+#   ggplot(aes(x = persrear, y = values)) +
+#   geom_boxplot(aes(fill = persrear)) + 
+#   geom_point()+
+#   theme_bw()+
+#   xlab("Personality trait and rearing-history")+
+#   ylab("Aberrant Repetitve behaviour(%)") +
+#   theme(legend.position = "none")
+ # # ggtitle(" Welfare indices of Asiatic lions <br> with different personality traits and rearing histories")+
+ #  theme(plot.title = element_markdown(hjust = 0.5), legend.position = "none",
+ #        strip.text = element_text(),
+ #        axis.title = element_text())
+ggbetweenstats(raw, x = history_personality, y =  aberrant_repetitive_behaviour_perecentage , xlab = "Rearing history and personality trait", ylab = "ARB scans percentage(n = 120,540)", pairwise.display = "significant", results.subtitle = FALSE, centrality.type = "nonparametric")+
+  theme(text = element_text(size = 14))
+```
+
+::: footer
+Chapter 2
+:::
+::: notes
+-  Movement based ARBs like swaying, nose-rubbing, and pacing were very common 
+
+   -  If you focus on the captive bold and wildshy animals, you will notice that they are quite different. 
+   -    it is interesting to note that there is a certain amount of overlap across the groups.
+   -   Curiously the captivebold animals and wild bold animals are quite similar to each other.
+   -   Similarly, the captive-shy and wild-shy animals are quite similar in their proportion of ARBs.
+:::
+
+
+## Results: Behaviour diversity
+
+::: goal
+Behaviour diversity levels varied significantly between bold-captive and shy-wild groups.
+:::
+
+```{r, fig}
+#| echo: false
+#| fig-align: "center"
+#| out-width: 1600px
+#| out-height: 700px
+# raw |> 
+#   pivot_longer(cols = c(4,5,6,7,9), values_to = "values", names_to = "attributes") |> 
+#   mutate(persrear = case_when( personality == 1 & lifehistory == 1 ~ "wildbold",
+#                                personality == 0 & lifehistory == 1 ~ "wildshy",
+#                                personality == 1 & lifehistory == 0 ~ "captivebold",
+#                                personality == 0 & lifehistory == 0 ~ "captiveshy")) |> 
+#   pivot_longer(cols = c(2,3), values_to = "traits", names_to = "ind") |> 
+#   filter(attributes == "behaviour_diversity") |> 
+#   ggplot(aes(x = persrear, y = values)) +
+#   geom_boxplot(aes(fill = persrear)) + 
+#   geom_point()+
+#   xlab("Personality trait and rearing-history")+
+#   ylab("Behaviour diversity (SWI)") +
+#   #ggtitle(" Welfare indices of Asiatic lions <br> with different personality traits and rearing histories")+
+#   theme_bw() +
+#   theme(plot.title = element_markdown(hjust = 0.5, size = 12), legend.position = "none",
+#         strip.text = element_text(size=12),
+#         axis.title = element_text(size = 14))
+ggbetweenstats(raw, x = history_personality, y = behaviour_diversity, xlab = "Rearing history and personality trait", ylab = "Behaviour diversity (SWI)", pairwise.display = "significant", results.subtitle = FALSE, centrality.type = "nonparametric")+
+  theme(text = element_text(size = 18))
+```
+
+
+::: footer
+Chapter 2
+:::
+:::notes
+-  Behaviour diversity is an important positive indicator for animal welfare that has gained popularity in the past few decades.
+-  I used the Shannon Weiner diversity index to calculate it.
+-  Results
+   -   Here I see a similar trend that was highlighted in the ARb section
+   -  Captivebold and wildshy animals were diametrically opposite to one another, and the captiveshy and wildbold animals lay somewhere in between.
+   
+   -  It was interesting to note that the captive origin animals had higher behaviour diversity than the wild origin animals.
+   
+   -  This loss in behaviour diversity in wild animals could be speculatively attributed to the fact that most of them were rescued as adults.
+   -  Hence in captivity, these wild-rescued lions do not have access to the complex range of stimuli linked with diverse behavioral repertoires.
+   -  Although the enclosures at SZG are large, naturalistic, and provide for the captive-born animals, they are unable to meet the requirement of the wild-rescued individuals.
+:::
+
+## Results: Enclosure usage
+
+::: goal
+Captive-Bold lions used enclosure space more homogenously as compared to the rest of the lions.
+:::
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: 1600px
+#| out-height: 700px
+# raw |> 
+#   pivot_longer(cols = c(4,5,6,7,9), values_to = "values", names_to = "attributes") |> 
+#   mutate(persrear = case_when( personality == 1 & lifehistory == 1 ~ "wildbold",
+#                                personality == 0 & lifehistory == 1 ~ "wildshy",
+#                                personality == 1 & lifehistory == 0 ~ "captivebold",
+#                                personality == 0 & lifehistory == 0 ~ "captiveshy")) |> 
+#   pivot_longer(cols = c(2,3), values_to = "traits", names_to = "ind") |> 
+#   filter(attributes == "enclosure_usage") |> 
+#   ggplot(aes(x = persrear, y = values)) +
+#   geom_boxplot(aes(fill = persrear)) + 
+#   geom_point()+
+#   xlab("Personality trait and rearing-history")+
+#   ylab("Enclosure usage (SPI)") +
+#  # ggtitle(" Welfare indices of Asiatic lions <br> with different personality traits and rearing histories")+
+#  theme_bw()+
+#   theme(plot.title = element_markdown(hjust = 0.5, size = 12), legend.position = "none",
+#         strip.text = element_text(size=12),
+#         axis.title = element_text(size = 14))
+ggbetweenstats(raw, x = history_personality, y = enclosure_usage, xlab = "Rearing history and personality trait", ylab = "Enclosure usage (SPI)", pairwise.display = "significant", results.subtitle = FALSE, centrality.type = "nonparametric")+
+  theme(text = element_text(size = 18))
+```
+
+```{r}
+raw<- readxl::read_xlsx("data/raw.xlsx", sheet = "peerj submit")
+
+```
+
+::: footer
+Chapter 2
+:::
+::: notes
+-   I calculated the spread of the participation index that measures the homogeneity of enclosure usage.
+-  Results
+
+  -   SPI value of 1 means that animals have a significant preference for one or two zones and do not use the rest of the areas.
+
+  -   I found that the SPI values for wild shy animals were uncomfortably high, which meant that they spent most of their time at a single part of the enclosure without exploring the other zones. 
+
+  -   Therefore I see that wild-rescued shy animals are performing more stereotypy, showing fewer species-typical behaviours and performing more aberrant behaviors as compared to captive born animals.
+:::
+
+## Results: Faecal corticosterone metabolite levels
+
+::: goal
+Wild-rescued and shy individuals had the highest corticosterone levels compared to other lions.
+:::
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| out-width: 1600px
+#| out-height: 700px
+final <- readRDS("data/finalold.RDS")
+# final <- final |> janitor::clean_names() |>
+#   mutate(name = tolower(name),
+#          personality = case_when( personality == 0 ~ "Shy",
+#                                   personality == 1 ~ "Bold"),
+#          lifehistory = case_when (lifehistory == 0 ~ "captive",
+#                                   lifehistory == 1 ~ "wild")) |>
+#   unite("history_personality", c("personality", "lifehistory"))
+ggbetweenstats(final, x = history_personality, y = precort, xlab = "Rearing history and personality trait", ylab = " Faecal corticosterone ug/gm",pairwise.display = "significant", results.subtitle = FALSE, centrality.type = "nonparametric")+
+  theme(text = element_text(size = 18))
+```
+
+::: footer
+Chapter 2
+:::
+
+::: notes
+
+- I found that there was a significant difference between wild-shy and captive-Bold animals. moreover, there was a significant difference between bold and shy wild-rescued lions.
+-  This goes on to reveal some nuances to the effects of individual variations on the welfare outcomes of individual animals
+-  This answers the question I raised in chapter 1 regarding the variation in the welfare measures at off-display enclosures.
+
+:::
+
+## Results: Correlation between welfare indices
+:::: columns
+:::{.column width="60%"}
+![](figures/corspear.png){width="900" height="1000"}
+```{r}
+#| message: false
+#| warning: false
+#| eval: false
+# glimpse(final)
+cot<- final |> select(c(latency_in_seconds, aberrant_repetitive_behaviour_perecentage, behaviour_diversity, enclosure_usage, precort)) |> 
+  rename(LATENCY = latency_in_seconds, ARB = aberrant_repetitive_behaviour_perecentage, SPI = enclosure_usage, FGM = precort, BD= behaviour_diversity) |> 
+  cor(method = "spearman") |> 
+  round(2) 
+cot <- as.data.frame(cot)
+
+cordata<- final |> select(c(latency_in_seconds, aberrant_repetitive_behaviour_perecentage, behaviour_diversity, enclosure_usage, precort)) |> 
+  rename(LATENCY = latency_in_seconds, ARB = aberrant_repetitive_behaviour_perecentage, SPI = enclosure_usage, FGM = precort, BD= behaviour_diversity)
+library(PerformanceAnalytics)
+#cordata <- log(cordata)
+chart.Correlation(cordata, histogram = TRUE, method = "spearman")
+
+```
+:::
+:::{.column width="40%"}
+::: goal
+-  Behaviour diversity highly negatively correlated with ARB, SPI(enclosure usage) and corticosterone levels.
+-  Faecal corticosterone metabolite level highly correlated with latency measures, behaviour diversity and ARB levels.
+:::
+
+:::
+::::
+
+::: footer
+Chapter 2
+:::
+
+
+::: notes
+- I found that behaviour diversity was negatively correlated with ARB, SPI and faecal corticosterone levels.
+- It ws interesting to note that faecal corticosterone levels were highly positively correlated to latency levels.
+- Next I wanted to check if there was any causal relationship between some of the welfare indices.
+:::
+##  Results: Relationship between behaviour diversity, enclosure usage and ARB
+
+::: goal
+Behaviour_diversity ~ 1.8+ (-0.46)SPI + (-0.046)ARB
+::: 
+ 
+::: columns
+ ![](ppcheck.png){width="600" height="400"}
+ ![](VIF.png){width="600" height="400"}
+ ![](residuals.png){width="600" height="400"}
+:::
+ 
+```{r}
+#| fig-width: 1300
+#| fig-align: center
+final1 <- final |> rename(ARB = aberrant_repetitive_behaviour_perecentage, SPI = enclosure_usage, BD = "behaviour_diversity", FGM= "precort")
+
+final21<- final1 |> 
+  select(ARB, BD, SPI)|>
+  mutate(ARB = scale(ARB),
+         BD= scale(BD),
+         SPI = scale(SPI))
+final21<- datawizard::standardise(final21)
+m2<- lm(BD ~ SPI + ARB, data = final1)
+graphs<- performance::check_model(m2)
+library(performance)
+library(gtsummary)
+# broom::tidy(m2) |> kbl() |> kable_styling(font_size =24)
+ta<- m2 |> tbl_regression() |> add_glance_table() |> as_tibble()
+
+ta1<- ta[c(1,2,3,4,8,10,14),]
+ta<- ta1 |> 
+   mutate(across(where(is.numeric), ~ round(.x, 2))) |> 
+  kbl(caption = "Regression table for Behaviour diversity ~ enclosure usage + ARB", booktabs = T) |> 
+   kable_styling(position = "center", latex_options = c("repeat_header"),full_width = T, font_size = 18)
+ta
+```
+::: footer
+Chapter 2
+:::
+
+::: notes
+- 85% of variance in Behaviour diversity was explained by enclosure usage and ARB.
+- I scaled the variables before conducting the analysis.
+-  I also checked for multicollinearity to account for the correlation between SPI and ARB.
+
+
+
+:::
+
+## Summary
+
+::: goal
+
+-   Personality and rearing-history strongly associated with welfare indices.
+
+-   Wild-rescued animals with shy personalities need more care.
+
+-   Individual-tailored husbandry regimes required.
+
+-    Multi-dimensional welfare assessment necessary to optimise captive animal management.
+
+-   Sex and social grouping does not affect welfare measures.
+
+-   Behavioural welfare indices are reliable indicators for physiological stress.
+
+-   Behaviour diversity levels were explained by enclosure usage pattern and ARB levels.
+
+-   Further investigations required to understand the strong correlation between FGM levels and latency values.
+
+:::
+
+::: footer
+ Chapter 2
+:::
+
+::: notes
+-  Personality and rearing history account for some of the inter-individual differences in welfare outcomes.
+- These findings challenge the current notion that wild animals are likely to have higher behaviour diversity. 
+-   findings suggest that context matters. wild animals rescued and brought into captivity loose the stimulus to perform a significant amount of their typical behavior repertoire. while captive born animals in our study have retained most of their repertoire.
+-  Therefore enclosure design and management practices for wild-rescued animals have to be designed to meet their unique requirement.
+-  Contrary to some existing research I found that sex and social grouping did not affect welfare variations under similar husbandry conditions.
+-  While I found that behavioural welfare indices were in line with physiological measures. I discovered that  behaviour diversity of an animal was primarily explained by the enclosure usage pattern and the level of ARB expressed by them.
+-  Therefore zoo managers must pay special attention to individuals who develop enclosure zone bias and start performing displacement behaviours.
+-  I found that latency to novel object was highly correlated to the FGM level of subjects. This needs further investigation.
+- 
+-  
+:::
+
+
+## Chapter 3: Effects of a combined enrichment approach on the welfare of Asiatic lions {style="text-align:center;"}
+
+
+::: columns
+
+![](figures/P1070704.JPG){width="600"}
+![](figures/image19.jpeg){width="600"}
+![](figures/image21.png){width="600"}
+:::
+### Objectives
+::: goal
+Can enrichment interventions improve welfare and encourage positive affective states in Asiatic lions?
+:::
+
+::: aside
+Goswami, S., Patel, S. K., Kadivar, R., Tyagi, P. C., Malik, P. K., & Mondol, S. (2021). Effects of a combined enrichment intervention on the behavioural and physiological welfare of captive Asiatic lions (*Panthera leo persica*). Applied Animal Behaviour Science, 236, 105222. <https://doi.org/10/gjq5dv>,
+:::
+
+::: footer
+Chapter 3
+:::
+
+::: notes
+
+- Finally I wanted to check if enrichment interventions could bring a positive impact on the welfare idnices of the asiatic lions. 
+- So I designed a study to measure the impacts of an enrichment intervention on the off-display housed lions.
+:::
+
+
+## Objectives{visibility="hidden"}
+
+::: footer
+Chapter 3
+:::
+
+## Study design
+
+![](figures/chapter4.png){fig-align="center" width="1900"}
+
+::: goal
+-   Subjects randomly divided into control(N =16, seven enclosures) and test group(N =19, seven enclosures).
+-   Baseline period lasted 14 days with weekly scat collection.
+-   Enrichment interventions were made for one week period.
+-   14 days of post-enrichment data collection commenced.
+:::
+
+::: footer
+Chapter 3
+:::
+
+::: notes
+- I used 35 Asiatic lions housed at 14 enclisures for this study.
+- Enclosures were randomly assigned to control and test enclosures.
+-  Baseline behaviour observation with weekly scat collection commenced for 14 days for both control and test groups.
+- After that I introduced a combined enrichment intervention at the test enclosures, while no changes were made to the control enclosures.
+- Following a one week habituation period. I collected post-treatment data on both control and test group subjects to measure the impacts of the enrichment interventions.
+:::
+## Methodology
+
+
+![](figures/chapter4method1.png){height="1000" fig-align="center"}
+
+
+::: footer
+Chapter 3
+:::
+
+## Enrichment types used{.scrollable}
+
+### Enclosure enrichment
+::: goal
+Enrichment is defined as any device, or management practice that is designed to provide captive animals
+
+-  More control over captive environment.
+-  Add behavioural choices.
+-  Promote species-appropriate repertoires.
+-  Allow them to cope with challenges.
+:::
+
+### Type of enrichment
+```{r}
+table41 <- readxl::read_xlsx("data/tables.xlsx", sheet = "c4t1")
+table41 |> kbl( caption = "Description of enrichment devices", longtable = T, booktabs = T, format = "html") |> 
+  kable_styling(position = "center", latex_options = c("striped", "repeat_header"), font_size = 20) |> 
+  column_spec(1, width = "1cm") |> 
+  column_spec(2, width = "3cm") |> 
+  column_spec(3, width = "3cm")
+```
+::: footer
+Chapter 3
+:::
+
+
+
+## Setting up enrichment
+
+![](figures/image9.jpeg){width="1900" fig-align="center"}
+
+::: footer
+Chapter 3
+:::
+
+## Setting up enrichment
+![](figures/image10.jpeg){width="1900" fig-align="center"}
+
+::: footer
+Chapter 3
+:::
+
+## Setting up enrichment
+![](figures/image11.jpeg){width="1900" fig-align="center"}
+
+::: footer
+Chapter 3
+:::
+
+## Enrichment use: Manipulable enrichment
+
+![](figures/jenifer.gif){fig-align="center"}
+
+
+::: footer
+Chapter 3
+:::
+
+## Enrichment use: Sensory enrichment
+
+![](figures/image19.jpeg){width="1900" fig-align="center"}
+
+
+::: footer
+Chapter 3
+:::
+
+
+## Enrichment use: Feed-based enrichment
+
+![](figures/image21.png){width="1900" fig-align="center"}
+
+
+::: footer
+Chapter 3
+:::
+
+## Modification of enclosure furniture 
+
+![](figures/P1060462.JPG){fig-align="center"}
+
+::: footer
+Chapter 3
+:::
+
+## Modification of enclosure furniture 
+
+![](figures/perch2.JPG){fig-align="center"}
+
+
+::: footer
+Chapter 3
+:::
+
+## Combined enrichment intervention 
+
+<!-- ![](figures/lionenr4.mp4) -->
+<video data-autoplay src="figures/lionenr4.mp4" width="1800px" height="1000px" 
+        controls="controls" ></video>
+
+::: footer
+Chapter 3
+:::
+
+
+## Results: Enrichment preference
+
+::: columns
+::: {.column width="60%"}
+```{r,fig.showtext=TRUE,fig.dim=c(12,9)}
+#| echo: false
+#| label: enrichment_pref
+#| message: false
+#| warning: false
+#| fig-align: center
+library(tidyverse)
+enricht <- readr::read_csv("/home/sitendu/Documents/Phd/thesisgit/data/enrich2.csv")
+all <- readr::read_csv("/home/sitendu/Documents/Phd/thesisgit/data/all.csv")
+timefinal <- readr::read_csv("/home/sitendu/Documents/Phd/thesisgit/data/timefinal.csv")
+#names(timefinal)
+timefinal<- timefinal |>  mutate(Time = case_when(Time == "7am-9am" ~ "7-9",
+                                      Time == "9am-11am" ~ "9-11",
+                                      Time == "11am-1pm" ~ "11-13",
+                                      Time == "1pm-3pm" ~ "13-15",
+                                      Time == "3pm-5pm" ~ "15-17",
+                                      Time == "5pm-7pm" ~ "17-19"))
+level_orders <- c("7-9", "9-11", "11-13", "13-15", "15-17", "17-19")
+ggplot(timefinal, aes(x=factor(Time, level = level_orders), y = Scans, fill = Behaviour)) +
+  geom_col(position = "stack", width = 0.5) + facet_wrap(~Enrichment) +
+  scale_fill_manual(values = c("#d95f0e" ,"#636363", "#7fcdbb","#e7298a","#31a354","#2c7fb8",  "#fec44f"))+
+  scale_y_continuous(n.breaks = 20) +
+  # ggtitle("Enrichment-directed behaviours performed by test-subjects") +
+  xlab(" Observations between 0700 to 1900 hours divided in two hour blocks") +
+  ylab("Percentage of 1092,238 scans during each two-hour blocks") + theme_classic()+
+  theme(legend.position = "bottom",text = element_text(size = 18))
+
+#View(all)
+```
+:::
+
+::: {.column width="40%"}
+::: goal
+-   Feed based enrichment were the first preference for all subjects.
+-   A combination of manipulable and sensory enrichment with integrated food rewards had the highest engagement time.
+-   Social interactions increased with manipulable enrichment.
+-   Exploratory behaviours increased with sensory enrichments.
+:::
+:::
+:::
+
+::: footer
+Chapter 3
+:::
+
+## Results: behaviour diversity
+
+::: goal
+-  Behaviour diversity increased significantly in test group but remained unchanged for control group.
+:::
+
+```{r}
+#| echo: false
+#| out-width: 1600px
+#| out-height: 700px
+#| fig-align: center
+library(readxl)
+behave <- read_xlsx("data/enrich.xlsx", sheet = "Sheet9")
+# glimpse(behave)
+library(psych)
+behave$group <- as.factor(behave$group)
+# describeBy(behave$prediversity, group = behave$group)
+# describeBy(behave$postdiversity, group = behave$group)
+# describeBy(behave$preusage, group = behave$group)
+# describeBy(behave$postusage, group = behave$group)
+# summary(behave$postdiversity)
+# describeBy(behave$prearb, group = behave$group)
+# describeBy(behave$postarb, group = behave$group)
+# preb <- var.test(prediversity ~ group, data = behave)
+# preb
+# postb <- var.test(postdiversity ~ group, data = behave)
+# postb
+# prea <- var.test(prearb ~ group, data = behave)
+# prea
+# posta <- var.test(postarb ~ group, data = behave)
+# posta
+# postu <- var.test(postusage ~group, data= behave)
+# postu
+
+# ggdiv
+div1 <- ggboxplot(behave, "group", "prediversity",color="black", fill="group",palette=NULL, xlab= " Treatment", ylab="Behaviour diversity (SWI)", title= "Baseline")+ theme(legend.position = "bottom",plot.title = element_text(hjust = 0.5), text= element_text(size=18)) 
+div1 <- ggpar(div1, ylim = c(0,2), yticks.by = 0.5)
+div2 <- ggboxplot(behave, "group", "postdiversity",color="black", fill="group",palette=NULL, xlab= " Treatment", ylab="", title= "Post-treatment") + stat_compare_means(method = "wilcox.test",label.y =2,paired = FALSE) + ylab("") + theme(legend.position = "bottom",plot.title = element_text(hjust = 0.5), text= element_text(size=18)) 
+div2 <- ggpar(div2, ylim = c(0,2.5), yticks.by = 0.5)
+div1 <- ggpar(div1, ylim = c(0,2.5), yticks.by = 0.5)
+div1+div2
+```
+
+::: footer
+Chapter 3
+:::
+
+## Results: Enclosure usage(SPI)
+
+::: goal
+Post-enrichment test group subjects used enclosure sapce more homogenously.
+:::
+
+```{r}
+#| out-width: 1600px
+#| out-height: 700px
+#| echo: false
+#| fig-align: center
+use1 <- ggboxplot(behave, "group", "preusage",color="black", fill="group",palette=NULL, xlab= " Treatment", ylab="Enclosure usage (SPI)", title= "Baseline")+ stat_compare_means(method = "t.test",label.y=1, paired = FALSE) + scale_y_continuous(breaks = seq(from = 0 , to = 1, by = 0.2))+ theme(legend.position = "bottom",plot.title = element_text(hjust = 0.5), text= element_text(size=18)) 
+use2 <- ggboxplot(behave, "group", "postusage",color="black", fill="group",palette=NULL, xlab= " Treatment", ylab="", title= "Post-treatment")+ stat_compare_means(method = "wilcox.test",label.y =1,paired = FALSE) + scale_y_continuous(breaks = seq(from = 0 , to = 1, by = 0.2))+ theme(legend.position = "bottom",plot.title = element_text(hjust = 0.5), text= element_text(size=18)) 
+use1+use2
+```
+
+::: footer
+Chapter 3
+:::
+
+
+## Results: Aberrant repetitve behaviours (ARB)
+
+::: goal
+Stereotypy levels decreased significantly in test group subjects but remained unchanged for control group.
+:::
+
+```{r}
+#| echo: false
+#| out-width: 1600px
+#| out-height: 700px
+#| fig-align: center
+ARB1 <- ggboxplot(behave, "group", "prearb",color="black", fill="group",palette=NULL, xlab= " Treatment", ylab="Aberrant repetitive behaviours", title= "Baseline")+ stat_compare_means(method = "t.test", paired = FALSE)+ theme(legend.position = "bottom",plot.title = element_text(hjust = 0.5), text= element_text(size=18)) 
+ARB2 <- ggboxplot(behave, "group", "postarb",color="black", fill="group",palette=NULL, xlab= " Treatment", ylab="", title= "Post-treatment", label.y=25)+ stat_compare_means(method = "wilcox.test", paired = FALSE)+ theme(legend.position = "bottom",plot.title = element_text(hjust = 0.5), text= element_text(size=18)) 
+ARB1+ARB2
+```
+::: footer
+Chapter 3
+:::
+## Results: Faecal corticosterone metabolites
+
+::: goal
+Corticosterone levels decreased in test group subjects
+:::
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 1700px
+#| out-height: 900px
+library(readxl)
+horm <- read_xlsx("data/enrich.xlsx", sheet = "Sheet12")#this sheet contains updated data of ug cort per gram sample
+# glimpse(horm)
+#fix(horm)
+horm1 <- select(horm,c(1:3))
+horm1 <- horm1[1:38,]# I shall slect the first 38 rows of the data horm1 so that the NA values do not show up in the graphs
+# glimpse(horm1)
+# str(horm1)
+# table(horm1$pregroup)
+horm1$pregroup <- as.factor(horm1$pregroup)
+horm$postgroup <- as.factor(horm$postgroup)
+# tapply(horm1$precort, horm1$pregroup, mean, simplify = TRUE)
+# tapply(horm1$precort, horm1$pregroup, sd, simplify = TRUE)
+# tapply(horm$postcort, horm$postgroup, mean, simplify = TRUE)
+# tapply(horm$postcort, horm$postgroup, sd, simplify = TRUE)
+# glimpse(horm)
+# table(horm$basegroup)
+# describeBy(horm1$precort, group = horm1$pregroup)
+# describeBy(horm$postcort, group = horm$postgroup)
+# str(sapply)
+# str(lapply)
+horm1$pregroup <- recode(horm1$pregroup, control = "Control", test = "Test")
+horm$postgroup <- recode(horm$postgroup, control = "Control", test = "Test")
+```
+
+```{r}
+#|echo: false
+#horm1$precort <- log10(horm1$precort)
+#horm$postcort <- log10(horm$postcort)
+# glimpse(horm$postcort)
+#View(horm$postcort)
+#dev.off()
+library(ggstatsplot)
+library(ggpubr)
+library(wesanderson)
+# help("wes_palette")
+# wes_palette("GrandBudapest1")
+#palette(wesanderson)
+#??wesanderson
+# glimpse(horm1)
+cort1 <- ggboxplot(horm1,"pregroup", "precort",color="black",
+                   fill="pregroup",
+                   palette=NULL, 
+                   xlab= "Treatment", ylab="Corticosterone ug/gm",
+                   title.position = "top")+ 
+  scale_x_discrete(limits = c("Control", "Test")) + stat_compare_means(method = "t.test", paired = FALSE)+ 
+  labs(title = "Baseline", fill = "Group") + 
+  theme(legend.position = "bottom",plot.title = element_text(hjust = 0.5), text= element_text(size=18)) 
+cort2 <- ggboxplot(horm, "postgroup", "postcort",color="black", fill="postgroup",palette= NULL, xlab= "Treatment", title= "Post-treatment")+
+  stat_compare_means(method = "t.test", paired = FALSE) +
+  labs(fill="Group") +
+  theme(legend.position = "bottom",plot.title = element_text(hjust = 0.5, size =18), text= element_text(size=18))  + ylab("") 
+cort1 <- ggpar(cort1, ylim = c(1,20), yticks.by = 2)
+cort2 <- ggpar(cort2, ylim = c(1,20), yticks.by = 2)
+```
+
+```{r, fig.showtext=TRUE}
+#| echo: false
+#| out-width: 1600px
+#| out-height: 700px
+#| fig-align: center
+cort1 + cort2
+```
+
+::: footer
+Chapter 3
+:::
+
+::: notes
+the
+:::
+
+## Chapter summary
+
+::: goal
+-   Enrichment interventions led to positive impact on the behavioural and physiological welfare indices.
+-  A universal welfare evaluation framework.
+-  A combined enrichment approach of manipulable, feeding and sensory enrichment is best suited for long term engagement for Asiatic lions.
+-  All enrichment devices should be provided in excess at multiple locations.
+-  High value food rewards create positive reinforcement to novel objects.
+-  Tailored enrichment interventions should be integrated with the management practices of all captive felids.
+:::
+
+::: footer
+Chapter 3
+:::
+
+::: notes
+ -  Animal welfare  not only means prevention of cruelty, it also seeks to create opportunities for captive animals to experience positive affective states.
+ 
+ -  Our study is the first  to showcase the impact of enrichment interventions on the behavioural and physiological welfare of Asiatic lions conclusively.
+ 
+ - The welfare measurement framework used in this study is largely species-agnostic and can be applied to any modern zoological institution to assess welfare impacts of goal-oriented enrichment interventions. 
+ 
+ - I found that  enrichment devices specially manipulable and feed based enrichment create a positive relation with novel objects and lead to better welfare outcomes and longer engagement times. however there should be a large number of such objects to prevent infighting and aggressive monopolizations.
+ -  The enrichment interventions shown here require little  monetary input but can have large positive welfare impacts. Therefore it is suggested to incorporate them in the management of large captive felids at Indian zoos and conservation breeding programmes.
+ 
+:::
+
+
+
+## Summary and recommendations
+
+::: goal
+-   Animal welfare is affected by enclosure complexity.
+-   Personality and rearing history cause differential welfare outcomes to similar management practices.
+-   Bold and shy personality traits are ubiquitous across both rearing-history types.
+-   Enclosure enrichment integrated with daily husbandry can lead to positive welfare outcomes.
+:::
+
+###  Recommendations
+
+-   Animal welfare should be the driver of captive animal management.
+-   Both external and internal factors should be considered while measuring welfare in captive animals.
+-   Inter-individual differences can lead to differential welfare outcomes to similar husbandry practices.
+-   Enrichment interventions can improve welfare parameters significantly.
+-   Lack of scientific inputs and manpower should be addressed.
+
+::: notes
+
+-   Animal welfare is an overlooked aspect of captive animal management across most Indian zoos and conservation breeding centers.
+-   My thesis shows that animal welfare is dependent on the enclosure complexity and it species appropriateness followed by internal factors like personality and rearing history.
+-  Finally, Enrichment interventions are very effective in creating opportunities for good welfare and should be integrated with incumbent management practices.
+-  I have visited several small medium and large zoos in India and one thing stands out. There is a distinct lack of manpower at most of them. 
+-  Zoo management need to invest in keeper training and zoo biologists to address the welfare epidemic at Indian zoos.
+:::
+
+::: footer
+Chapter 3
+:::
+
+## Suggestions for the Asiatic lion Conservation breeding programme
+
+<!-- ![](figures/aslion.png){height="100%"} -->
+
+::: goal
+The objective of the Conservation Breeding Programme is not oriented on the taking individuals from the wild but to give to the wild. The zoo individual are used as insurance for the use in future with aim only to complement and supplement the *in-situ* population. (Central Zoo Authority, India)
+:::
+::::{.columns}
+:::{.column width="50%"}
+```{r}
+#|echo: false
+#|include: true
+#|eval: true
+#|fig-align: center
+
+cr %>% filter(Year %in% 2000:2018) %>%
+  mutate(year = case_when(Year > 1958 & Year < 1995 ~ "1958-1995",
+                          Year >= 1995 & Year<= 2000 ~ "1995-2000",
+                          Year>= 2001 & Year <= 2005 ~ "2000-2005",
+                          Year >= 2006 & Year <= 2010 ~ "2005-2010",
+                          Year >= 2011 & Year <= 2015 ~ "2010-2015",
+                          Year >= 2016 & Year <= 2018 ~ "2015-2018")) |>
+  group_by(year, origin) |>
+  summarise(n = sum(n)) |>
+  ggplot(aes(year, n, fill = origin)) +
+  geom_bar(stat = "identity", position = "dodge") +labs( y = "Number of new individuals" ,
+       x = "Years",
+       fill = "Origin of  animals") +
+  theme_classic()+
+  # geom_text(aes(label = n))+
+  theme(legend.position = "bottom",
+        axis.title = element_text(size = 20),
+        axis.text = element_text(size=18),
+        legend.text = element_text(size=18),
+        legend.title = element_text(size =18))
+ggsave("aslion.png", width=1400,height=1000, units = "px",scale = 2.5, limitsize = TRUE)
+```
+- Unstable captive population.
+
+:::
+:::{.column width="50%"}
+### Recommendations
+::: goal
+-  Appropriateness of approach.
+-  Clear definition of success.
+-  Constant welfare monitoring of captive population as measures of success.
+-  A clear roadmap to repatriation of individuals.
+-  Financial accountability.
+-  Publication of results.
+:::
+:::
+::::
+::: notes
+- I created this graph by extracting data from the studbook data of Asiatic lions which shows that since 2010. The captive population of the CBP at SZP has been augmented primarily by wild-rescued lions as opposed to animals born in captivity. This may be linked to several issues such high juvenile mortality and low genetic diversity that has been highlighted other researchers. But it definitely requires us to audit the existing management practices and make policy changes to the management of Asiatic lions. 
+-  Conservation breeding programmes have turned into a panacea and Indian zoos presently accommodate such programmes for 25 endangered endemic species.
+
+-  Unfortunately, Indian conservation breeding programmes seldom publish  animal welfare reports and there is little evidence to suggest the existence of an active welfare monitoring programme at most sites.
+
+- Despite the overwhelming evidence for enrichment interventions few zoos have an active enrichment-linked management policy for any endangered species.
+
+-   The Asiatic lion conservation breeding programme has been operational since 1995. with breeding records dating back to 1958. 
+
+- The goal of the conservation breeding plan was to create a captive population as an insurance policy. Now that the goal has been achieved, why not start with the repatriation of some animals to reclaimed habitats?
+
+-   There is an urgent need to recalibrate the management practice for Asiatic lions. So that these animals become fit for successful repatriation.
+
+-  The conservation story of Asiatic lions prominently features 59 research papers and over a dozen doctoral thesis on the wild population.
+
+-  Yet it took over two decades for us to address the welfare status of the captive population housed in the Conservation breeding programme.
+
+-  I hope that our study sparks the conversation about animal welfare at Indian CBP. and inspires researchers, academics and zoo managers to audit incumbent management practices.
+
+- Finally I hope that the managers and ecologists realize the importance of this conservation breeding programme and take it to the reintroduction phase.
+
+:::
+
+::: footer
+Recommendations
+:::
+
+
+
+
+## Publications
+
+![](figures/peerjpub.png){fig-align="center"}
+
+## Publications
+
+![](figures/appab.png){fig-align="center"}
+
+## Conferences
+
+![](figures/WAFL.png){fig-align="center"}
+
+## Conferences
+
+![](figures/ABS.png){fig-align="center"}
+
+## Acknowledgments
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {style="font-size:0.7em"}
+
+#### Wildlife Institute of India
+
+-   Director and Dean Wildlife Institute of India.
+-   Research Coordinator, Wildlife Institute of India.
+-   Dr. Samrat Mondol, PhD supervisor.
+-   Sh. P.C. Tyagi, Project Investigator.
+-   Dr. P.K. Malik, Project Investigator.
+-   Dr. Parag Nigam, CBZM cell.
+-   Dr. K. Ramesh.
+-   Dr. V.P. Uniyal.
+-   Dr. Anupam Srivastav.
+-   Dr. Bivash Pandav.
+-   Kausik, Abesh, Santanu, Parabita, Sutirtha, Manjari Roy, Stotra, Shiv Patel, Suvankar Biswas and other members of WII-community.
+
+#### Zoological Society of London
+
+-   Dr. Gitanjali Bhattacharya,  Dr. Malcolm Fitzpatrick, Mr. Julien Godfrey.
+
+#### Gujarat Forest Department
+
+-   Dr. S. C. Pant, former PCCF , Gujarat.
+-   Mr. S. J. Pandit, Director, Sakkarbaug Zoo.
+-   Dr. R. Kadivar, Veterinarian, Sakkarbaug Zoo.
+-   Salim Chuvan and team, Animal keepers, Sakkarbaug Zoo.
+
+:::
+
+:::
+
+:::{.column width="50%"}
+
+#### [Forest Research Institute]{style="font-size:0.7em"}
+::: {style="font-size:0.7em"}
+-   Dr. Varshney, Scientist-F.
+:::
+#### [Field assistant]{style="font-size:0.7em"}
+::: {style="font-size:0.7em"}
+-   Mr Ali Asgar Bloch.
+:::
+#### Special mentions
+
+::: {style="font-size:0.8em"}
+-  My mother, Mrs. Swapna Goswami.
+-  Ms. Manjari Malviya, my better half.
+-  Sh PC Tyagi, IFS.
+
+:::
+
+:::
+
+::::
+
+## [Thank you]{style="text-align:center;font-size:3em;"}
+
+![](figures/image31.png){fig-align="center"}
+
+ 
+
+
